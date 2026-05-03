@@ -8,12 +8,12 @@ const stats = [
 export default function StatsBar() {
   return (
     <section className="px-[5vw] py-5">
-      <div className="grid grid-cols-2 md:grid-cols-4 bg-bg-secondary rounded-2xl overflow-hidden">
+      <div className="grid grid-cols-2 md:grid-cols-4 rounded-2xl overflow-hidden">
         {stats.map((stat, i) => (
           <div
             key={stat.label}
             className={`flex flex-col items-center gap-1.5 py-10 px-6
-              ${i < stats.length - 1 ? "border-r border-r-accent/20" : ""}
+              ${i < stats.length - 1 ? "md:border-r-2 border-r-accent" : ""}
               ${i < 2 ? "border-b border-b-accent/20 md:border-b-0" : ""}
             `}
           >

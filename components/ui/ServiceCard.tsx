@@ -13,7 +13,7 @@ export default function ServiceCard({ index, title, text, link }: ServiceCardPro
 
   return (
     <div className="group relative flex flex-col justify-between gap-4 h-65 p-7
-      bg-bg-tertiary rounded-2xl border border-white/5 overflow-hidden
+      bg-bg-tertiary rounded-xl border border-white/5 overflow-hidden
       transition-all duration-300 hover:-translate-y-1 hover:border-accent/20">
 
       {/* top accent line — slideaza s leva na hover */}

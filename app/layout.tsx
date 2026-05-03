@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, DM_Sans } from 'next/font/google'
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 const barlow = Barlow_Condensed({
@@ -34,7 +35,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Navbar />
         {children}
-        
+        <Footer />
       </body>
     </html>
   );
