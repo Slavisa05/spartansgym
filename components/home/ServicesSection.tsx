@@ -6,22 +6,43 @@ export default function ServicesSection() {
             <h2>Usluge</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <ServiceCard 
-                    index={1}
+                <ServiceCard
                     title="Personalni trening"
-                    text="Naši personalni treninzi su prilagođeni vašim ciljevima, nivou kondicije i tempu napretka. Trenirajte sa iskusnim trenerom koji prati svaki vaš korak i motiviše vas da postignete maksimum." 
-                />
-
-                <ServiceCard 
-                    index={2}
-                    title="Kondiciona priprema sportista"
-                    text="Naša kondiciona priprema sportista osmišljena je da odgovori na specifične zahteve vašeg sporta i nivoa forme. Radite sa stručnjacima koji prate svaki detalj vašeg razvoja i vode vas ka vrhunskoj formi onda kada je najpotrebnije." 
+                    desc="Trening 1 na 1 prilagođen vašem cilju, tempu i nivou forme."
+                    img="/gym1.jpg"
+                    paragraphs={[
+                        "Personalni trening je osmišljen tako da svaki minut bude usmeren na vaš konkretan cilj: mršavljenje, povećanje snage, oblikovanje tela ili bolju kondiciju.",
+                        "Trener prati tehniku izvođenja, koriguje pokrete i prilagođava opterećenje u realnom vremenu kako bi napredak bio bezbedan i konstantan.",
+                        "Program se periodično menja u skladu sa rezultatima kako biste izbegli stagnaciju i ostali motivisani.",
+                    ]}
+                    time="60 min"
+                    price="2.500 RSD po treningu"
                 />
 
                 <ServiceCard
-                    index={3} 
+                    title="Kondiciona priprema sportista"
+                    desc="Specifična priprema koja podiže performanse i smanjuje rizik od povrede."
+                    img="/markec.jpg"
+                    paragraphs={[
+                        "Kondiciona priprema je prilagođena sportu kojim se bavite i fazi sezone, uz fokus na eksplozivnost, izdržljivost, agilnost i stabilnost.",
+                        "Trening plan prati vaša testiranja i učinak, tako da svaki ciklus daje merljiv napredak kada je najvažnije.",
+                        "Poseban akcenat stavljamo na prevenciju povreda i kvalitet oporavka između intenzivnih treninga i utakmica.",
+                    ]}
+                    time="75 min"
+                    price="3.000 RSD po treningu"
+                />
+
+                <ServiceCard
                     title="Vođeni trening"
-                    text="Pridružite se dinamičnim vođenim treninzima i uživajte u motivaciji zajednice. Od kardio treninga do funkcionalnog vežbanja, svaki čas je prilika za zabavu i napredak." 
+                    desc="Grupni trening u motivišućoj atmosferi uz stručno vođenje."
+                    img="/somi.jpg"
+                    paragraphs={[
+                        "Vođeni treninzi kombinuju kardio, snagu i funkcionalne vežbe u dinamičnom tempu koji održava fokus i energiju cele grupe.",
+                        "Trener vodi svaku vežbu korak po korak, nudi alternative za različite nivoe kondicije i brine o pravilnoj tehnici.",
+                        "Idealno rešenje za sve koji žele podršku zajednice i strukturu koja olakšava kontinuitet treninga.",
+                    ]}
+                    time="50 min"
+                    price="800 RSD po treningu"
                 />
             </div>
         </section>

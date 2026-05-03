@@ -1,6 +1,4 @@
-import { ArrowRight } from "lucide-react"
-import Link from "next/link"
-import TeamCard from "../ui/TeamCard"
+import TeamHomeCard from "../ui/TeamHomeCard"
 import Button from "../ui/Button"
 
 export default function TeamSection() {
@@ -9,9 +7,9 @@ export default function TeamSection() {
             <h2>Treneri</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <TeamCard title="Dejan Mladenović" image="/logo.png" />
-                <TeamCard title="Ivan Petrović" image="/logo.png" />
-                <TeamCard title="Stefan Marković" image="/logo.png" />
+                <TeamHomeCard title="Dejan Mladenović" image="/logo.png" />
+                <TeamHomeCard title="Ivan Petrović" image="/logo.png" />
+                <TeamHomeCard title="Stefan Marković" image="/logo.png" />
             </div>
 
             <div>
