@@ -10,6 +10,7 @@ export interface Gym {
   closeTime: string;
   phone: string;
   about: string[];
+  images: string[];
   testimonials: Testimonial[];
 }
 
@@ -33,6 +34,9 @@ export const gyms: Gym[] = [
       "Spartans Gym 1 nije samo teretana — to je zajednica ljudi koji dele istu strast, koji se međusobno bodre, inspirišu i zajedno rastu.",
       "Uz pažljivo izabranu muziku i motivacionu atmosferu, svaki trening postaje prilika da nadmašiš sebe i ostaviš sve izgovore iza sebe.",
       "Ako želiš da promeniš sebe, svoje navike i svoj način života — Spartans Gym 1 je mesto gde sve počinje. Mi ne obećavamo čuda. Mi zajedno stvaramo rezultate."
+    ],
+    images: [
+      "/gym1.jpg",
     ],
     testimonials: [
       {
