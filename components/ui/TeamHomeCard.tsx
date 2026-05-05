@@ -13,7 +13,7 @@ export default function TeamHomeCard({ title, image}: TeamHomeCardProps) {
                 alt="Slika trenera"
                 width={100}
                 height={100}
-                className="w-[80%] self-center"
+                className="w-[80%] self-center rounded-xl"
             />
 
             <h3>{title}</h3>

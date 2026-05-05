@@ -21,7 +21,7 @@ export default function GymCard({ title, text, image, link }: GymCardProps) {
                 alt="slika teretane"
                 width={200}
                 height={200}
-                className="w-full mb-5"
+                className="w-full mb-5 rounded-xl"
             />
 
             <h3 className="uppercase">{title}</h3>

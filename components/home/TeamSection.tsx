@@ -7,9 +7,9 @@ export default function TeamSection() {
             <h2>Treneri</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <TeamHomeCard title="Dejan Mladenović" image="/logo.png" />
-                <TeamHomeCard title="Ivan Petrović" image="/logo.png" />
-                <TeamHomeCard title="Stefan Marković" image="/logo.png" />
+                <TeamHomeCard title="Dejan Mladenović" image="/dejan.jpg" />
+                <TeamHomeCard title="Ivan Petrović" image="/mali.jpg" />
+                <TeamHomeCard title="Stefan Marković" image="/markec.jpg" />
             </div>
 
             <div>

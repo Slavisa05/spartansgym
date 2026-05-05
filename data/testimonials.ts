@@ -31,30 +31,9 @@ export const allTestimonials: Testimonial[] = [
   },
   {
     id: 5,
-    name: "Jovana P.",
-    gym: "Gym 2",
-    text: "Trener Miloš je sjajan, preporučujem svima.",
-    rating: 5,
-  },
-  {
-    id: 6,
-    name: "Jovana P.",
-    gym: "Gym 2",
-    text: "Trener Miloš je sjajan, preporučujem svima.",
-    rating: 5,
-  },
-  {
-    id: 7,
-    name: "Jovana P.",
-    gym: "Gym 2",
-    text: "Trener Miloš je sjajan, preporučujem svima.",
-    rating: 5,
-  },
-  {
-    id: 8,
-    name: "Jovana P.",
-    gym: "Gym 2",
-    text: "Trener Miloš je sjajan, preporučujem svima.",
+    name: "Mirko M.",
+    gym: "Gym 3",
+    text: "Odlicna atmosfera, cista teretana, sve preporuke!.",
     rating: 5,
   },
 ];

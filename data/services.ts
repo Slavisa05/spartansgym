@@ -29,7 +29,7 @@ export const services: Service[] = [
     {
         slug: "kondiciona-priprema-sportista",
         title: "Kondiciona priprema sportista",
-        desc: "Naša kondiciona priprema sportista osmišljena je da odgovori na specifične zahtjeve vašeg sporta, nivoa forme i takmičarskog kalendara. Radite sa stručnjacima koji prate svaki detalj vašeg razvoja, optimizuju vašu snagu, izdržljivost i brzinu, i vode vas ka vrhunskoj formi onda kada je najpotrebnije",
+        desc: "Naša kondiciona priprema sportista osmišljena je da odgovori na specifične zahtjeve vašeg sporta, nivoa forme i takmičarskog kalendara. Radite sa stručnjacima koji prate svaki detalj vašeg razvoja i vode vas ka vrhunskoj formi.",
         img: "/gym1.jpg",
         paragraphs: [
             "Kondiciona priprema sportista donosi vrhunsku energiju, zajednički rad i takmičarski duh koji podstiče maksimalan napredak. Treninzi su osmišljeni tako da razvijaju snagu, izdržljivost, agilnost i eksplozivnost — ključne komponente svakog uspešnog sportiste.",
