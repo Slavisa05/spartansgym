@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  /* OVO SE BRISE KADA BUDE IMAO SVOJ DOMEN */
+  basePath: '/gym',
+  async redirects() {
+    return []
+  },
 };
 
 export default nextConfig;
