@@ -20,6 +20,7 @@ export default function GymServices({ gymSlug }: GymServicesProps) {
                         index={index + 1}
                         title={service.title}
                         text={service.desc}
+                        link="/usluge"
                     />
                 ))}
             </div>
