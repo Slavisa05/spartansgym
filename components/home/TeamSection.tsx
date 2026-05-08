@@ -1,3 +1,4 @@
+import Link from "next/link"
 import TeamHomeCard from "../ui/TeamHomeCard"
 import Button from "../ui/Button"
 
@@ -12,9 +13,9 @@ export default function TeamSection() {
                 <TeamHomeCard title="Stefan Marković" image="/markec.jpg" />
             </div>
 
-            <div>
+            <Link href="/o-nama/#treneri">
                 <Button text="pogledaj sve trenere" variant="secondary" />
-            </div>
+            </Link>
         </section>
     )
 }

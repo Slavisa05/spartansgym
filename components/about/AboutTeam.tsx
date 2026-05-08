@@ -3,7 +3,7 @@ import { trainers } from "@/data/trainers"
 
 export default function AboutTeam() {
     return(
-        <section className="px-[5vw] py-10 flex flex-col gap-8">
+        <section id="treneri" className="px-[5vw] py-10 flex flex-col gap-8">
             <h2>Upoznajte naš tim</h2>
             <div className="flex flex-col items-center gap-10">
                 {trainers.map((trainer) => (

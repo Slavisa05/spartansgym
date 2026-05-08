@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function AboutHero() {
     return(
-        <section className="px-[5vw] flex items-center justify-between min-h-screen">
+        <section className="px-[5vw] pt-[30vh] md:pt-0 flex items-center justify-between min-h-screen">
             <div className="grid md:grid-cols-2 gap-8">
                 <div className="flex flex-col justify-center gap-5">
                     <h1><span className="bg-linear-to-r from-accent to-accent-dim bg-clip-text text-transparent">Fitness Centar Spartans Gym</span> mesto gde se dešavaju čuda!</h1>

@@ -15,7 +15,6 @@ const gyms = [
 const links = [
     { href: "/o-nama", label: "o nama" },
     { href: "/usluge", label: "usluge" },
-    { href: "/blog", label: "blog" },
 ];
 
 export default function Navbar() {
@@ -66,8 +65,6 @@ export default function Navbar() {
                     <div
                         ref={dropdownRef}
                         className="relative"
-                        onMouseEnter={() => setDropdownOpen(true)}
-                        onMouseLeave={() => setDropdownOpen(false)}
                     >
                         <button
                             onClick={() => setDropdownOpen((prev) => !prev)}
