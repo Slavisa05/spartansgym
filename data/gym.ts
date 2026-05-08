@@ -9,6 +9,13 @@ export interface PricingOption {
   brojProlazaka?: string;
 }
 
+export interface WorkingHoursEntry {
+  day: string;
+  open?: string;
+  close?: string;
+  isClosed?: boolean;
+}
+
 export interface Gym {
   slug: string;
   type: GymType;
@@ -18,6 +25,7 @@ export interface Gym {
   address?: string;
   openTime?: string;
   closeTime?: string;
+  workingHours?: WorkingHoursEntry[];
   phone?: string;
   about?: string[];
   images?: string[];
@@ -39,6 +47,11 @@ export const gyms: Gym[] = [
     address: "Stevana Borote 11, Ub",
     openTime: "06:00",
     closeTime: "22:00h",
+    workingHours: [
+      { day: "Ponedeljak - Petak", open: "06:00", close: "22:00" },
+      { day: "Subota", open: "07:00", close: "12:00" },
+      { day: "Nedelja", isClosed: true },
+    ],
     phone: "+381601234567",
     about: [
       "Fitness Centar Spartans Gym 1 nastao je iz želje da se napravi prostor koji inspiriše promenu. Mesto gde svako može da pronađe motivaciju, disciplinu i snagu da pomeri svoje granice — bilo fizičke ili mentalne.",
@@ -69,6 +82,11 @@ export const gyms: Gym[] = [
     address: "Kralja Petra Prvog 11, Ub",
     openTime: "06:00",
     closeTime: "22:00h",
+    workingHours: [
+      { day: "Ponedeljak - Petak", open: "06:00", close: "22:00" },
+      { day: "Subota", open: "07:00", close: "12:00" },
+      { day: "Nedelja", isClosed: true },
+    ],
     phone: "+381601234567",
     about: [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -94,6 +112,10 @@ export const gyms: Gym[] = [
     address: "Prvog Maja 61, Ub",
     openTime: "08:00",
     closeTime: "22:00h",
+    workingHours: [
+      { day: "Ponedeljak - Subota", open: "08:00", close: "22:00" },
+      { day: "Nedelja", open: "10:00", close: "22:00" },
+    ],
     phone: "+381601234567",
     about: [
       "Spartans Gym 3 je prostor stvoren za one koji žele slobodu u svom treningu. Mesto gde si ti gazda svog rasporeda — biraš kad šta radiš, bez obaveze za grupne termine, bez pritiska.",

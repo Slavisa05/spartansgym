@@ -1,14 +1,16 @@
 import { Clock3, MapPin, Phone } from "lucide-react";
+import type { WorkingHoursEntry } from "@/data/gym";
 
 interface GymInfoProps {
     map: string;
     address: string;
-    openTime: string;
-    closeTime: string;
+    openTime?: string;
+    closeTime?: string;
+    workingHours?: WorkingHoursEntry[];
     phone: string;
 }
 
-export default function GymInfo({ map, address, openTime, closeTime, phone }: GymInfoProps) {
+export default function GymInfo({ map, address, openTime, closeTime, workingHours, phone }: GymInfoProps) {
     return(
         <section className="px-[5vw] py-10">
             <div className="grid md:grid-cols-2 gap-8">
@@ -44,7 +46,18 @@ export default function GymInfo({ map, address, openTime, closeTime, phone }: Gy
                         <p className="text-text-secondary leading-relaxed">
                             Treniraj kada ti najviše odgovara - otvoreni smo svakog dana u širokom terminu.
                         </p>
-                        <p className="mt-2 font-semibold text-text-primary">{openTime} - {closeTime}</p>
+                        {workingHours && workingHours.length > 0 ? (
+                            <div className="mt-3 space-y-2">
+                                {workingHours.map((entry) => (
+                                    <p key={entry.day} className="font-semibold text-text-primary">
+                                        <span className="text-text-secondary">{entry.day}: </span>
+                                        {entry.isClosed ? "Ne radi" : `${entry.open} - ${entry.close}`}
+                                    </p>
+                                ))}
+                            </div>
+                        ) : (
+                            <p className="mt-2 font-semibold text-text-primary">{openTime} - {closeTime}</p>
+                        )}
                     </div>
 
                     <div className="rounded-2xl border border-border bg-bg-secondary p-5">

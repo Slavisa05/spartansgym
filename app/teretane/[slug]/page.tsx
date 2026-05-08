@@ -1,5 +1,6 @@
 import { gyms, getGymTestimonials } from "@/data/gym";
 import { notFound } from "next/navigation";
+import type { Metadata } from 'next'
 import GymHero from "@/components/gym/GymHero";
 import GymInfo from "@/components/gym/GymInfo";
 import GymAbout from "@/components/gym/GymAbout";
@@ -10,6 +11,29 @@ import GymServices from "@/components/gym/GymServices";
 import GymPricing from "@/components/gym/GymPricing";
 import GymComingSoon from "@/components/gym/GymComingSoon";
 import CTASection from "@/components/shared/CtaSection";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const gym = gyms.find((g) => g.slug === slug);
+
+  if (!gym) {
+    return {
+      title: "Teretana nije pronadjena | Spartans Gym",
+      description: "Trazeni objekat nije pronadjen.",
+    };
+  }
+
+  return {
+    title: `${gym.name} | Spartans Gym`,
+    description:
+      gym.about?.[0] ??
+      "Savremeni trening, proverena oprema i strucni tim trenera u Spartans Gym.",
+  };
+}
 
 export default async function GymPage({
   params,
@@ -39,6 +63,7 @@ export default async function GymPage({
         address={gym.address!}
         openTime={gym.openTime!}
         closeTime={gym.closeTime!}
+        workingHours={gym.workingHours}
         phone={gym.phone!}
       />
       <GymAbout text={gym.about!} />
