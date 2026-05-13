@@ -165,6 +165,6 @@ export const trainers: Trainer[] = [
             "U radu joj je najvažnije da trening bude kvalitetan,bezbedan i prilagodjen svakom vežbaču."
         ],
         gymSlugs: ["gym-1"],
-        phone: "+381640330280"
+        phone: "+381649810061"
     },
 ];
