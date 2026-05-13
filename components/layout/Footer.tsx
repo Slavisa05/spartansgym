@@ -40,15 +40,15 @@ export default function Footer() {
 					<h3 className="mb-4 text-base uppercase tracking-wide">kontakt</h3>
 					<div className="space-y-2 text-sm text-text-secondary">
 						<a 
-                            href="tel:+381601234567" 
+                            href="tel:+381693478669" 
                             className="block transition-colors hover:text-accent">
-							+381 60 123 4567
+							+381693478669
 						</a>
 						<a
-							href="mailto:info@spartansgym.rs"
+							href="mailto:fitnesscentarspartansgym@gmail.com"
 							className="block transition-colors hover:text-accent"
 						>
-							info@spartansgym.rs
+							fitnesscentarspartansgym@gmail.com
 						</a>
                         <a 
                             href="https://instagram.com/dejan_mladenovic_condition"

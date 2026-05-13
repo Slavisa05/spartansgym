@@ -7,6 +7,11 @@ export interface Service {
     time?: string;
     price: string;
     perTraining?: boolean;
+    priceOptions?: {
+        label: string;
+        price: string;
+        suffix?: string;
+    }[];
     gymSlugs: string[];
 }
 
@@ -22,8 +27,14 @@ export const services: Service[] = [
             "Personalni trener je tu ne samo da te vodi kroz trening, već i da te motiviše, koriguje i usmeri ka trajnim promenama — kako u telu, tako i u glavi.",
         ],
         time: "60",
-        price: "1500",
+        price: "1700",
         perTraining: true,
+        priceOptions: [
+            { label: "Plaćanje po treningu", price: "1700", suffix: "po treningu" },
+            { label: "Paket 12 treninga unapred", price: "18000" },
+            { label: "Paket 16 treninga unapred", price: "22400" },
+            { label: "Biranje trenera po treningu", price: "2000", suffix: "po treningu" },
+        ],
         gymSlugs: ["gym-1"],
     },
     {
@@ -53,6 +64,11 @@ export const services: Service[] = [
         ],
         time: "60",
         price: "4500",
+        priceOptions: [
+            { label: "Dnevna članarina", price: "700" },
+            { label: "Vođeni trening", price: "4500", suffix: "mesečno" },
+            { label: "Pisani plan i program", price: "6000", suffix: "mesečno" },
+        ],
         gymSlugs: ["gym-1", "gym-2"],
     },
     {
@@ -66,7 +82,7 @@ export const services: Service[] = [
             "Naš cilj je da svaki mali sportista iz školice izađe motivisan, srećan i spreman za dalje sportske izazove — uz osmeh i puno dobre energije!",
         ],
         time: "60",
-        price: "4500",
+        price: "2700",
         gymSlugs: ["gym-1"],
     },
     {
@@ -80,7 +96,7 @@ export const services: Service[] = [
             "Cilj je da svaki mali gimnastičar kroz časove oseti radost pokreta, izgradi zdrav odnos prema vežbanju i pripremi se za dalje sportske izazove u sigurnom i podržavajućem okruženju.",
         ],
         time: "60",
-        price: "4500",
+        price: "3500",
         gymSlugs: ["gym-1"],
     },
     {
@@ -164,7 +180,7 @@ export const services: Service[] = [
             "Naš cilj je da ti pomognemo da kroz redovne časove joge izgradiš snažnije telo i smireniji duh, u prijatnom i podržavajućem okruženju.",
         ],
         time: "60",
-        price: "4500",
+        price: "3500",
         gymSlugs: ["gym-1"],
     },
     {
@@ -178,7 +194,11 @@ export const services: Service[] = [
             "Naš cilj je da ti pomognemo da kroz redovne časove pilatesa izgradiš funkcionalno telo koje je snažno, pokretno i otporno na svakodnevne izazove.",
         ],
         time: "60",
-        price: "4500",
+        price: "2700",
+        priceOptions: [
+            { label: "Pilates 2x nedeljno", price: "2700", suffix: "mesečno" },
+            { label: "Pilates 3-4x nedeljno", price: "3500", suffix: "mesečno" },
+        ],
         gymSlugs: ["gym-1"],
     },
 ];

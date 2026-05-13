@@ -8,13 +8,13 @@ export default function GymSection() {
                 <GymCard 
                     title="gym 1" 
                     text="Naša teretana u Talovima nudi sve - od personalnih i polu-personalnih treninga do grupnog vežbanja. Moderni sprave i iskusni treneri obezbeđuju da svaki trening bude efikasan i motivišući. Pridružite se zajednici koja vas inspiriše da postignete svoje ciljeve." 
-                    image="/gym1.jpg"
+                    image="/gym1/s1-gym1.jpg"
                     link="/teretane/gym-1"
                     />
                 <GymCard 
                     title="gym 2" 
                     text="Teretana u Lajkovcu kombinuje sve što vam je potrebno za napredak - personalni, polu-personalni i grupni treninzi. Opremljena je najsavremenijim spravama i prostorom za udobno vežbanje. Treneri vas prate na svakom koraku i pomažu da ostvarite najbolje rezultate." 
-                    image="/gym2.jpg"
+                    image="/gym2/s1-gym2.jpeg"
                     link="/teretane/gym-2"
                     />
                 <GymCard 

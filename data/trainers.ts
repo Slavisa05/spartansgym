@@ -34,7 +34,7 @@ export const trainers: Trainer[] = [
             "Rad sa decom sa cerebralnom paralizom",
         ],
         instagram: "dejan_mladenovic_condition",
-        phone: "+381601234567",
+        phone: "+381693478669",
         gymSlugs: ["gym-1", "gym-2", "gym-3"],
     },
     {
@@ -50,7 +50,7 @@ export const trainers: Trainer[] = [
             "Ivan je primer trenera koji ne prestaje da uči, stalno traži načine da unapredi svoj rad i svojim pristupom inspiriše sve koji treniraju sa njim.",
         ],
         instagram: "ivan_mali95",
-        phone: "+381601234567",
+        phone: "+381691309962",
         gymSlugs: ["gym-1"],
     },
     {
@@ -66,7 +66,7 @@ export const trainers: Trainer[] = [
             "Posetite našu teretanu u Lajkovcu i uverite se sami zašto je Šomi jedan od omiljenih trenera među našim članovima!",
         ],
         instagram: "somika_10",
-        phone: "+381601234567",
+        phone: "+381643260739",
         gymSlugs: ["gym-2"],
     },
     {
@@ -82,8 +82,43 @@ export const trainers: Trainer[] = [
             "Trening sa Markecem je kombinacija ozbiljnog rada i dobre atmosfere – sa njim ćete dati sve od sebe, a nećete ni primetiti koliko ste napredovali.",
         ],
         instagram: "markec96",
-        phone: "+381601234567",
+        phone: "+381603477289",
         gymSlugs: ["gym-1"],
+    },
+    {
+        slug: "nikola-ristovski",
+        name: "Nikola Ristovski",
+        role: "trener",
+        img: "/markec.jpg",
+        desc: [
+            "Nikola Ristovski, poznatiji svima kao Rile, apsolvent je Fakulteta sporta i fizičkog vaspitanja u Leposaviću i uskoro stiče zvanje diplomiranog profesora fizičkog vaspitanja i sporta.",
+            "Rile je i dalje aktivan sportista, tačnije fudbaler, a svoje bogato iskustvo iz raznih treninga koje je pokupio od mnogo trenera je preneo u teretanu.",
+            "Drugačiji princip rada i specifičnost vežbi mu je donelo razliku od klasičnog trenera što se vežbačima veoma svidelo.",
+            "Njegov profesionalni pristup i posvećenost kao i specifičan rad u ispravljanu telesnih deformiteta kod dece, kao i detaljna analiza problema, donela mu je pozitivnu ocenu kod kolega, a i vežbača.",
+            "Takodje u radu sa decom se izdvojio i vodi školicu gimnastike u Fitness centru Spartans Gym kao i svoj sistem treninga sa mladim fudbalerima kod kojih razvija pored motoričkih i druge kongitivne sposobnosti reakcija u takmičarskim uslovima.",
+            "Rileta krasi dobar osećaj za humor kao i dobra motivacija koju upućuje vežbačima u toku treninga, kao i vežbe koje do tada niste nikad radili ni probali.",
+        ],
+        instagram: "ristovski8",
+        phone: "+421940569230",
+        gymSlugs: ["gym-1"],
+    },
+    {
+        slug: "slavisa-arsenijevic",
+        name: "Slaviša Arsenijević",
+        role: "trener",
+        img: "/markec.jpg",
+        desc: [
+            "Slaviša je naš trenutno najmlađi član tima koji nam je doneo dosta pozitivne energije i podmladio ceo tim.",
+            "Nadimak Slavke je logičan ali pored toga ga zovemo i Misliča jer što se tiče IT sektora i savremene tehnologije on nam je glavni oslonac.",
+            "Student je na Fakultetu za Primenjeni Menadžment, Finansije i Ekonomiju (IT smer), a pored toga sjajno se pokazao u radu sa ljudima i nije nam dugo trebalo da ga ubacimo u naš tim trenera koji radi vođene i personalne treninge.",
+            "Inače Slaviša je naš vođa i menadzer Gym 3 koji veoma sjajno i odgovorno obavlja svoju ulogu pored svih silnih obaveza.",
+            "Posvećenost i odgovornost su njegovi glavni aduti, ali i želja da stekne nova znanja i iskustva.",
+            "Veoma druželjubiv i kulturan momak koji će svakom da se javi i svakom da pomogne su mu doneli reputaciju dobrog trenera i vežbači imaju veoma visoko mižjenje o njemu.",
+            "Trening sa Slavišom je veoma precizan i temeljno odrađen, a iz vežbača izvači maksimum.",
+        ],
+        instagram: "arsennijevic",
+        phone: "+381640811781",
+        gymSlugs: ["gym-1", "gym-3"],
     },
     {
         slug: "zaklina-milanovic",
@@ -97,7 +132,7 @@ export const trainers: Trainer[] = [
             "Na prvi pogled deluje nežno i dobroćudno, ali kada primeti da ne poštujete plan ishrane – zna i da bude stroga! Vedrog je duha, izuzetno posvećena svom poslu i uvek spremna da sasluša, posavetuje i pruži podršku na putu ka zdravijem načinu života.",
             "Zdrava ishrana je pola uspeha – a sa Žacom, ta polovina je u sigurnim rukama!",
         ],
-        phone: "+381601234567",
+        phone: "+381655756238",
         gymSlugs: [""],
     },
     {
@@ -114,5 +149,22 @@ export const trainers: Trainer[] = [
             "Sa Marom, svaki trening za decu postaje igra, a svaka igra – lekcija o zdravlju, disciplini i timskom duhu.",
         ],
         gymSlugs: ["gym-1"],
+        phone: "+381640330280"
+    },
+    {
+        slug: "vesna-sredojevic",
+        name: "Vesna Sredojević",
+        role: "trener",
+        img: "/vesna.jpeg",
+        desc: [
+            "Sa Marom, svaki trening za decu postaje igra, a svaka igra – lekcija o zdravlju, disciplini i timskom duhu.",
+            "Stroga i disciplinovana na treningu gde vas na fin način dovede do vašeg maksimuma, a van treninga nasmejana i uvek spremna za šalu.",
+            "Pilates instruktor sa više od 12 godina iskustva u radu sa različitim grupama vežbača.",
+            "Završila Visoku sportsku i zdravstvenu školu u Beogradu,kao i Fitnes akademiju u Beogradu.",
+            "Dugogodišnje iskustvo sticala je radeći kao pilates instruktor ,instruktor aerobika,funkcionalnog treninga za žene ,personalnog treninga.",
+            "U radu joj je najvažnije da trening bude kvalitetan,bezbedan i prilagodjen svakom vežbaču."
+        ],
+        gymSlugs: ["gym-1"],
+        phone: "+381640330280"
     },
 ];

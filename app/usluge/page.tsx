@@ -23,6 +23,7 @@ export default function Services() {
                             time={service.time}
                             price={service.price}
                             perTraining={service.perTraining}
+                            priceOptions={service.priceOptions}
                         />
                     ))}
                 </div>

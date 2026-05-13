@@ -11,7 +11,7 @@ export default function AboutHero() {
 
                 <div className="flex items-center justify-center">
                     <Image 
-                        src="/gym1.jpg"
+                        src="/gym1/s1-gym1.jpg"
                         alt="slika teretane"
                         width={800}
                         height={600}

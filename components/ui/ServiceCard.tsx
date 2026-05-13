@@ -12,9 +12,14 @@ interface ServiceCardProps {
     time?: string;
     price: string;
     perTraining?: boolean;
+    priceOptions?: {
+        label: string;
+        price: string;
+        suffix?: string;
+    }[];
 }
 
-export default function ServiceCard({ title, desc, img, paragraphs, time, price, perTraining }: ServiceCardProps) {
+export default function ServiceCard({ title, desc, img, paragraphs, time, price, perTraining, priceOptions }: ServiceCardProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
@@ -116,9 +121,19 @@ export default function ServiceCard({ title, desc, img, paragraphs, time, price,
                                             <Tag size={14} />
                                             Cena
                                         </p>
-                                        <p className="font-semibold text-text-primary">
-                                            {price} rsd {perTraining ? "po treningu" : "mesečno"}
-                                        </p>
+                                        {priceOptions && priceOptions.length > 0 ? (
+                                            <ul className="space-y-1">
+                                                {priceOptions.map((option) => (
+                                                    <li key={`${option.label}-${option.price}`} className="text-sm text-text-primary">
+                                                        <span className="font-semibold">{option.label}:</span> {option.price} rsd {option.suffix ?? ""}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        ) : (
+                                            <p className="font-semibold text-text-primary">
+                                                {price} rsd {perTraining ? "po treningu" : "mesečno"}
+                                            </p>
+                                        )}
                                     </div>
                                 </div>
                             </div>
