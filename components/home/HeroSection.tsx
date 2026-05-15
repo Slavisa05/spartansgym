@@ -8,9 +8,19 @@ export default function HeroSection() {
                 muted
                 loop
                 playsInline
-                className="absolute inset-0 w-full h-full object-cover object-center"
+                className="absolute inset-0 w-full h-full object-cover object-center md:hidden"
             >
                 <source src="/hero_video.mp4" type="video/mp4" />
+            </video>
+
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 hidden w-full h-full object-cover object-center md:block"
+            >
+                <source src="/hero_desktop.mp4" type="video/mp4" />
             </video>
 
             {/* Overlay — da tekst bude čitljiv */}
