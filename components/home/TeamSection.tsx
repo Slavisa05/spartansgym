@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { trainers } from "@/data/trainers";
 import TeamHomeCard from "../ui/TeamHomeCard";
 import Button from "../ui/Button";
@@ -17,9 +16,12 @@ export default function TeamSection() {
         ))}
       </div>
 
-      <Link href="/o-nama/#treneri">
-        <Button text="pogledaj sve trenere" variant="secondary" />
-      </Link>
+      <Button
+        href="/o-nama#treneri"
+        text="pogledaj sve trenere"
+        variant="secondary"
+        className="self-start"
+      />
     </section>
   );
 }

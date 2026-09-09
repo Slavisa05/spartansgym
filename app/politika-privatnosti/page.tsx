@@ -31,7 +31,7 @@ export default function PrivacyPolicyPage() {
   const updated = "2026";
 
   return (
-    <main className="px-[5vw] pt-[30vh] pb-16">
+    <main className="px-page pt-page pb-16">
       <div className="mx-auto flex max-w-3xl flex-col gap-10">
         <header className="flex flex-col gap-3">
           <p className="text-xs uppercase tracking-widest text-accent">Pravno</p>

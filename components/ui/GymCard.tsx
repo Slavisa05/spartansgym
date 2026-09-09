@@ -25,7 +25,7 @@ export default function GymCard({ title, text, image, link }: GymCardProps) {
             />
 
             <h3 className="uppercase">{title}</h3>
-            <p className="text-justify">{text}</p>
+            <p className="text-text-secondary">{text}</p>
 
             {/* footer — link + strelica */}
             <div className="flex items-center justify-between">

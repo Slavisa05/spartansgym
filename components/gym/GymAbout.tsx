@@ -22,7 +22,7 @@ export default function GymAbout({ text }: GymAboutProps) {
                 {rest.length > 0 && (
                     <div className="mt-5 space-y-4 text-text-secondary leading-relaxed">
                         {rest.map((paragraph, index) => (
-                            <p className="text-justify" key={index}>{paragraph}</p>
+                            <p key={index}>{paragraph}</p>
                         ))}
                     </div>
                 )}

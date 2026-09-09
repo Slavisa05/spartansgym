@@ -107,24 +107,40 @@ jer tako optimizacija slika i keš rade bez konfiguracije i preživljavaju deplo
 - `DEPLOY.md` — pun vodič (prvo podešavanje, Certbot, troubleshooting, checklist)
 - `.nvmrc` (20), `engines.node >=20.9.0`
 
+## Dizajn sistem (Faza 4)
+
+- Tokeni u `app/globals.css`: boje (`--accent` `#FF5500`, tamna tema),
+  `--nav-h` (visina fiksnog navbar-a), `--page-x` (horizontalni razmak).
+  **Ne uvoditi nove nasumične boje.**
+- Utility klase: `px-page` (= horizontalni padding sekcije, zamena za `px-[5vw]`),
+  `pt-page` (= gornji razmak stranica ispod fiksnog navbar-a, zamena za bivši
+  nekonzistentni `pt-[30vh]`). `scroll-padding-top` je vezan za `--nav-h` pa
+  sidra (`#treneri`, `#teretane`) ne završe ispod navbar-a.
+- Tipografija: skala definisana na `h1`–`h4` u `globals.css` (clamp). Barlow
+  Condensed nosi samo 600/700 — ne koristiti `font-weight` iznad 700.
+- `Button` (`components/ui/Button.tsx`): jedini CTA element. Sa `href` renderuje
+  `<Link>`, bez njega `<button>` (podržava `onClick`, `isLoading`, `type`).
+- `app/not-found.tsx`, `app/loading.tsx`, `app/error.tsx` — postoje.
+- `app/opengraph-image.tsx` — dinamička OG slika (`next/og`).
+
 ## Konvencije
 
 - Sadržaj sajta je na srpskom (latinica). Komentari/commit poruke takođe.
-- Boje i tipografija: CSS varijable u `app/globals.css` (`--accent` je `#FF5500`,
-  tamna tema). Ne uvoditi nove nasumične boje.
-- Layout razmak: `px-[5vw]` je standardni horizontalni padding sekcija.
-- `next/image` za sve slike; slike stoje u `public/`.
+- `next/image` za sve slike; slike stoje u `public/`. `next start` ih optimizuje
+  u letu — izvorne slike ne moraju biti WebP (izuzev logo-a koji je smanjen).
+- Hero video: `public/hero_desktop.mp4` (desktop) i `hero_video.mp4` (mobil),
+  sa `.webp` poster frame-ovima. Skraćeni na ~16s i rekompresovani.
 
-## Poznati TODO (van trenutne faze)
+## Poznati TODO (van trenutne faze — čeka vlasnika)
 
 - `public/gym4.jpg` ne postoji (Gym 4 je "coming-soon") — dodati pravu fotku ili čist ekran.
 - Fotografije trenera Stefan / Nikola / Slaviša dele `public/markec.jpg`.
-- Prави utisci članova umesto placeholdera.
+- Pravi utisci članova umesto placeholdera.
 - `/politika-privatnosti` — dopuniti pravne podatke i rok čuvanja.
 - Kupiti domen → verifikovati u Resend-u → prebaciti `LEAD_TO` i `RESEND_FROM`.
 - Napraviti GA4 property i ubaciti `NEXT_PUBLIC_GA_ID`.
 - Napraviti Google Apps Script Web App za Sheet i ubaciti `GOOGLE_SHEET_WEBHOOK_URL`.
-- Nema OG slike (`opengraph-image`) — može dinamička preko `next/og` (Faza 4).
+- Hero video je izvorno 848×478 — na velikim ekranima je blago mek (nema hi-res original).
 
 ## Plan rada (fazno, grana po fazi)
 
@@ -133,5 +149,10 @@ jer tako optimizacija slika i keš rade bez konfiguracije i preživljavaju deplo
    rate-limit, Google Sheet kopija), politika privatnosti, GA4 + consent, `lang="sr"`. ✅
 3. **Deploy** — PM2 `ecosystem.config.js`, `deploy/nginx.conf`, `deploy.sh`, `DEPLOY.md`,
    `.nvmrc`, `next.config.ts` (`poweredByHeader: false`). ✅
-4. **Dizajn polish** — tipografska skala, fiksni navbar bez `pt-[30vh]`,
-   jedinstven `Button` sa `href`, `not-found` / `loading` / `error`, optimizacija slika/videa, OG slika.
+4. **Dizajn polish** — tipografska skala + tokeni, `px-page`/`pt-page` (kraj `pt-[30vh]`),
+   navbar kompaktniji + blur/border, jedinstven `Button` sa `href` (+ popravljena hero
+   dugmad), `not-found`/`loading`/`error`, `opengraph-image`, optimizacija logo-a i
+   hero videa, focus stanja, `lang="sr"`. ✅
+
+Sve četiri faze su gotove. Sledeći korak je vlasnikov (domen, sadržaj, nalozi) —
+vidi „Poznati TODO" i `DEPLOY.md` checklist.

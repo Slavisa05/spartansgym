@@ -1,53 +1,118 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #0A0A0A;
+  /* Pozadine / tekst / akcenat */
+  --bg-primary: #0a0a0a;
   --bg-secondary: #141414;
-  --bg-tertiary: #1E1E1E;
-  --accent: #FF5500;
-  --accent-dim: #CC4400;
-  --text-primary: #F0F0F0;
-  --text-secondary: #888888;
+  --bg-tertiary: #1e1e1e;
+  --accent: #ff5500;
+  --accent-dim: #cc4400;
+  --text-primary: #f0f0f0;
+  --text-secondary: #a1a1aa; /* zinc-400 — dovoljan kontrast na tamnoj pozadini */
   --border: rgba(255, 255, 255, 0.08);
+
+  /* Visina fiksnog navbar-a — koristi je `pt-page` i scroll offset za sidra */
+  --nav-h: 7.5rem;
+
+  /* Horizontalni razmak sekcija */
+  --page-x: 5vw;
 }
 
 @theme {
-  --color-bg-primary: #0A0A0A;
+  --color-bg-primary: #0a0a0a;
   --color-bg-secondary: #141414;
-  --color-bg-tertiary: #1E1E1E;
-  --color-accent: #FF5500;
-  --color-accent-dim: #CC4400;
-  --color-text-primary: #F0F0F0;
-  --color-text-secondary: #94a3b8;
+  --color-bg-tertiary: #1e1e1e;
+  --color-accent: #ff5500;
+  --color-accent-dim: #cc4400;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #a1a1aa;
+
   --font-display: var(--font-barlow);
   --font-sans: var(--font-dm);
+}
+
+/* ─── Utility klase (Tailwind v4) ─────────────────────────────────── */
+
+/* Horizontalni padding sekcije — zamena za ponavljano px-[5vw] */
+@utility px-page {
+  padding-inline: var(--page-x);
+}
+
+/* Gornji razmak stranica koje počinju odmah ispod fiksnog navbar-a
+   (zamena za nekonzistentno pt-[30vh]) */
+@utility pt-page {
+  padding-top: calc(var(--nav-h) + 2rem);
+}
+
+/* ─── Osnovni elementi ────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+  /* Da sidra (#treneri, #teretane) ne završe ispod fiksnog navbar-a */
+  scroll-padding-top: calc(var(--nav-h) + 1rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-dm), sans-serif;
+  font-family: var(--font-dm), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ─── Tipografska skala ───────────────────────────────────────────── */
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-barlow), system-ui, sans-serif;
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.6rem, 6vw, 4rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 1.05;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
-  font-family: var(--font-barlow);
 }
 
 h2 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  line-height: 1.1;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.12;
   font-weight: 700;
   letter-spacing: -0.01em;
-  font-family: var(--font-barlow);
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  line-height: 1.2;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  line-height: 1.25;
   font-weight: 600;
-  font-family: var(--font-barlow);
+}
+
+h4 {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+p {
+  text-wrap: pretty;
 }

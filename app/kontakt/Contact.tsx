@@ -139,7 +139,7 @@ export default function Contact() {
     }
     
     return (
-        <main className="px-[5vw] pt-[30vh] pb-10">
+        <main className="px-page pt-page pb-10">
             <section className="mx-auto w-full max-w-3xl rounded-2xl border border-border bg-bg-secondary/70 p-4 md:rounded-3xl md:p-8">
                 <div className="mb-6">
                     <p className="text-xs uppercase tracking-widest text-accent">Kontakt forma</p>

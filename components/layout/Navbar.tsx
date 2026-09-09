@@ -46,10 +46,17 @@ export default function Navbar() {
     }, []);
 
     return (
-        <header className={`z-50 w-full backdrop-blur-3xl fixed px-[5vw] py-6 transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full"}`}>
+        <header className={`z-50 w-full backdrop-blur-3xl bg-bg-primary/70 border-b border-border fixed px-page py-4 transition-transform duration-300 ${visible ? "translate-y-0" : "-translate-y-full"}`}>
             <nav className="w-full flex items-center justify-between">
-                <Link href="/">
-                    <Image src="/logo.png" alt="Logo" width={100} height={100} priority />
+                <Link href="/" aria-label="Spartans Gym — početna">
+                    <Image
+                        src="/logo.png"
+                        alt="Spartans Gym"
+                        width={100}
+                        height={100}
+                        priority
+                        className="h-16 w-auto md:h-20"
+                    />
                 </Link>
 
                 {/* Desktop links */}
@@ -93,7 +100,7 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    <Link href="/kontakt" className="ml-2 uppercase px-8 py-2 rounded-xl bg-accent text-foreground hover:opacity-80 transition-opacity">
+                    <Link href="/kontakt" className="ml-2 uppercase px-8 py-2 rounded-xl bg-accent text-white hover:bg-accent-dim transition-colors">
                         kontaktiraj nas
                     </Link>
                 </div>
@@ -151,7 +158,7 @@ export default function Navbar() {
 
                     <Link
                         href="/kontakt"
-                        className="uppercase px-4 py-2 rounded-xl bg-accent text-background text-center hover:opacity-80 transition-opacity"
+                        className="uppercase px-4 py-2 rounded-xl bg-accent text-white text-center hover:bg-accent-dim transition-colors"
                         onClick={() => setMenuOpen(false)}
                     >
                         kontaktiraj nas
