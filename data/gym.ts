@@ -44,6 +44,17 @@ export function getGymTestimonials(gym: Gym) {
 /** Teretane koje su otvorene (bez "coming-soon" lokacija). */
 export const openGyms = () => gyms.filter((g) => g.type !== "coming-soon");
 
+/**
+ * Izvlači geo koordinate iz Google Maps embed URL-a (`!2d<lng>!3d<lat>`).
+ * Vraća null ako ne uspe — geo je opciono u JSON-LD-u.
+ */
+export function getGymGeo(gym: Gym): { lat: number; lng: number } | null {
+  if (!gym.map) return null;
+  const match = gym.map.match(/!2d(-?\d+\.\d+)!3d(-?\d+\.\d+)/);
+  if (!match) return null;
+  return { lng: Number(match[1]), lat: Number(match[2]) };
+}
+
 export const gyms: Gym[] = [
   {
     slug: "gym-1",

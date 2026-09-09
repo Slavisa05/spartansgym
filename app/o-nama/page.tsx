@@ -5,8 +5,9 @@ import AboutTeam from "@/components/about/AboutTeam"
 import CTASection from "@/components/shared/CtaSection"
 
 export const metadata: Metadata = {
-  title: 'O nama | Spartans Gym — Fitness Centar sa 10+ godina iskustva',
-  description: 'Upoznajte tim Spartans Gym-a — stručni treneri, nutricionista i zajednica koja inspiriše od 2016. godine. 4 teretane u Ubu, Lajkovcu i okolini.',
+  title: 'O nama — Fitness Centar sa iskustvom od 2016.',
+  description: 'Upoznajte tim Spartans Gym-a — stručni treneri, nutricionista i zajednica koja inspiriše od 2016. godine. Teretane u Ubu i Lajkovcu.',
+  alternates: { canonical: '/o-nama' },
 }
 
 export default function About() {

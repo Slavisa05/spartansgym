@@ -60,8 +60,14 @@ export default function Footer() {
 				</div>
 			</div>
 
-			<div className="border-t border-border py-5 text-center text-xs uppercase tracking-wide text-text-secondary">
-				© {year} Spartans Gym. Sva prava zadrzana.
+			<div className="flex flex-col items-center gap-2 border-t border-border py-5 text-center text-xs uppercase tracking-wide text-text-secondary sm:flex-row sm:justify-between">
+				<span>© {year} Spartans Gym. Sva prava zadržana.</span>
+				<Link
+					href="/politika-privatnosti"
+					className="transition-colors hover:text-accent"
+				>
+					Politika privatnosti
+				</Link>
 			</div>
 		</footer>
 	);

@@ -48,6 +48,7 @@ Sav sadržaj koji se menja živi u `data/` — komponente ga samo prikazuju.
 | `data/services.ts` | 12 usluga; `gymSlugs` = u kojim teretanama se nudi (prazan niz = samo na `/usluge`) | — |
 | `data/trainers.ts` | tim; `gymSlugs` = u kojim teretanama trener radi | — |
 | `data/testimonials.ts` | utisci članova | `publishableTestimonials()`, `MIN_TESTIMONIALS_TO_SHOW` |
+| `data/site.ts` | NAP podaci firme (naziv, URL, telefon, mejl, social) | `SITE`, `absoluteUrl()` |
 
 - `Gym.shortName` ("Gym 1") i `Gym.tagline` (jedna rečenica) se koriste u Navbar-u,
   na karticama početne strane i sl.
@@ -69,6 +70,30 @@ generička imena). Zbog toga:
 Pre puštanja u produkciju: tražiti prave utiske od vlasnika, zameniti unose i
 skinuti `placeholder: true`.
 
+## SEO i analitika (Faza 2)
+
+- `app/sitemap.ts` i `app/robots.ts` — generišu se iz `data/`; koriste `SITE.url`.
+- Metadata: `metadataBase` + OG/Twitter u `app/layout.tsx`; svaka stranica ima
+  svoj `alternates.canonical`. `<html lang="sr">`.
+- JSON-LD (`components/seo/`): `<JsonLd>` render komponenta, builderi u `schema.ts`.
+  `Organization` + `WebSite` idu iz layout-a (svuda); `ExerciseGym` + `BreadcrumbList`
+  na stranici teretane. Geo se parsira iz Google Maps embed URL-a (`getGymGeo`).
+- Analitika (`components/analytics/`): GA4 + Consent Mode v2. Bez `NEXT_PUBLIC_GA_ID`
+  se ne učitava ništa (ni skripta ni baner). `CookieBanner` čuva izbor u
+  `localStorage` (`sg-cookie-consent`).
+- `/api/contact`: honeypot polje `company`, rate-limit (5 / 10 min po IP, u memoriji),
+  primalac/pošiljalac iz env-a, opciona kopija u Google Sheet (Apps Script webhook,
+  ne ruši odgovor ako padne).
+- `/politika-privatnosti` — ŠABLON, čeka pravni pregled (oznake u `[uglastim zagradama]`).
+
+### Env promenljive
+
+Vidi `.env.example`. Ključne: `NEXT_PUBLIC_SITE_URL`, `RESEND_API_KEY`,
+`RESEND_FROM`, `LEAD_TO`, `LEAD_BCC`, `GOOGLE_SHEET_WEBHOOK_URL`, `NEXT_PUBLIC_GA_ID`.
+
+> Dok domen nije verifikovan u Resend-u, `LEAD_TO` mora da bude adresa vlasnika
+> Resend naloga. Posle verifikacije prebaciti na `fitnesscentarspartansgym@gmail.com`.
+
 ## Konvencije
 
 - Sadržaj sajta je na srpskom (latinica). Komentari/commit poruke takođe.
@@ -81,16 +106,19 @@ skinuti `placeholder: true`.
 
 - `public/gym4.jpg` ne postoji (Gym 4 je "coming-soon") — dodati pravu fotku ili čist ekran.
 - Fotografije trenera Stefan / Nikola / Slaviša dele `public/markec.jpg`.
-- Kontakt forma šalje sa `onboarding@resend.dev` — treba verifikovan domen kad se kupi.
-- Nema `sitemap.ts` / `robots.ts` / JSON-LD / OG slika / analitike (Faza 2).
-- `<html lang="en">` treba da bude `sr` (Faza 4).
+- Prави utisci članova umesto placeholdera.
+- `/politika-privatnosti` — dopuniti pravne podatke i rok čuvanja.
+- Kupiti domen → verifikovati u Resend-u → prebaciti `LEAD_TO` i `RESEND_FROM`.
+- Napraviti GA4 property i ubaciti `NEXT_PUBLIC_GA_ID`.
+- Napraviti Google Apps Script Web App za Sheet i ubaciti `GOOGLE_SHEET_WEBHOOK_URL`.
 - `next.config.ts` je prazan — treba `output: "standalone"` za VPS (Faza 3).
+- Nema OG slike (`opengraph-image`) — može dinamička preko `next/og` (Faza 4).
 
 ## Plan rada (fazno, grana po fazi)
 
 1. **Arhitektura + podaci** — konsolidacija sadržaja u `data/`, čišćenje. ✅
-2. **SEO + lead-gen** — metadata, sitemap/robots, JSON-LD, poboljšanje `/api/contact`,
-   Google Sheet kopija lead-a, politika privatnosti, GA4 + consent.
+2. **SEO + lead-gen** — metadata, sitemap/robots, JSON-LD, `/api/contact` (honeypot,
+   rate-limit, Google Sheet kopija), politika privatnosti, GA4 + consent, `lang="sr"`. ✅
 3. **Deploy** — `output: standalone`, PM2 `ecosystem.config.js`, Nginx, `deploy.sh`, `DEPLOY.md`.
-4. **Dizajn polish** — `lang="sr"`, tipografska skala, fiksni navbar bez `pt-[30vh]`,
-   jedinstven `Button` sa `href`, `not-found` / `loading` / `error`, optimizacija slika/videa.
+4. **Dizajn polish** — tipografska skala, fiksni navbar bez `pt-[30vh]`,
+   jedinstven `Button` sa `href`, `not-found` / `loading` / `error`, optimizacija slika/videa, OG slika.

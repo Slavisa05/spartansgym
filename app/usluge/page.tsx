@@ -4,8 +4,9 @@ import ServiceCard from "@/components/ui/ServiceCard"
 import CTASection from "@/components/shared/CtaSection"
 
 export const metadata: Metadata = {
-  title: 'Usluge | Spartans Gym — Personalni Treninzi, Školice i Rehabilitacija',
-  description: 'Personalni treninzi, kondiciona priprema, školica sporta, plivanje, joga, pilates i individualna ishrana. Programi za sve uzraste i ciljeve u Spartans Gymu.',
+  title: 'Usluge — Personalni Treninzi, Školice i Rehabilitacija',
+  description: 'Personalni treninzi, kondiciona priprema, školica sporta, plivanje, joga, pilates i individualna ishrana. Programi za sve uzraste i ciljeve u Spartans Gym-u.',
+  alternates: { canonical: '/usluge' },
 }
 
 export default function Services() {
