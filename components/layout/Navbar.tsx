@@ -4,13 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { gyms as gymData } from "@/data/gym";
 
-const gyms = [
-    { href: "/teretane/gym-1", label: "Gym 1" },
-    { href: "/teretane/gym-2", label: "Gym 2" },
-    { href: "/teretane/gym-3", label: "Gym 3" },
-    { href: "/teretane/gym-4", label: "Gym 4" },
-];
+// Lista teretana u meniju se generiše iz data/ (jedini izvor istine).
+const gyms = gymData.map((gym) => ({
+    href: `/teretane/${gym.slug}`,
+    label: gym.shortName,
+}));
 
 const links = [
     { href: "/o-nama", label: "o nama" },

@@ -7,8 +7,15 @@ export interface Trainer {
     bulletPoints?: string[];
     instagram?: string;
     phone?: string;
+    /**
+     * Slug-ovi teretana u kojima trener radi (jedini izvor istine za prikaz
+     * po teretani). Prazan niz = ne vezuje se za konkretnu lokaciju.
+     */
     gymSlugs: string[];
 }
+
+// TODO (fotografije): Stefan, Nikola i Slaviša trenutno dele /markec.jpg.
+// Zameniti pravim fotografijama čim ih vlasnik dostavi.
 
 export const trainers: Trainer[] = [
     {
@@ -133,7 +140,8 @@ export const trainers: Trainer[] = [
             "Zdrava ishrana je pola uspeha – a sa Žacom, ta polovina je u sigurnim rukama!",
         ],
         phone: "+381655756238",
-        gymSlugs: [""],
+        // Nutricionista radi sa svima, i van teretana — ne vezuje se za lokaciju.
+        gymSlugs: [],
     },
     {
         slug: "marija-blizanjac",
@@ -157,7 +165,6 @@ export const trainers: Trainer[] = [
         role: "trener",
         img: "/vesna.jpeg",
         desc: [
-            "Sa Marom, svaki trening za decu postaje igra, a svaka igra – lekcija o zdravlju, disciplini i timskom duhu.",
             "Stroga i disciplinovana na treningu gde vas na fin način dovede do vašeg maksimuma, a van treninga nasmejana i uvek spremna za šalu.",
             "Pilates instruktor sa više od 12 godina iskustva u radu sa različitim grupama vežbača.",
             "Završila Visoku sportsku i zdravstvenu školu u Beogradu,kao i Fitnes akademiju u Beogradu.",

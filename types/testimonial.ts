@@ -4,4 +4,9 @@ export interface Testimonial {
   gym: string;
   text: string;
   rating: number;
+  /**
+   * Označava izmišljen (privremen) utisak. Takvi se NE prikazuju na produkciji
+   * — vidi `publishableTestimonials` u `data/testimonials.ts`.
+   */
+  placeholder?: boolean;
 }

@@ -1,32 +1,25 @@
-import ServiceHomeCard from "../ui/ServiceHomeCard"
+import { services } from "@/data/services";
+import ServiceHomeCard from "../ui/ServiceHomeCard";
 
 export default function ServicesSection() {
-    return(
-        <section className="py-5 px-[5vw] flex flex-col gap-6">
-            <h2>Usluge</h2>
+  // Prve tri usluge iz data/ kao pregled; sve su na /usluge.
+  const preview = services.slice(0, 3);
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                <ServiceHomeCard
-                    title="Personalni trening"
-                    text="Trening 1 na 1 prilagođen vašem cilju, tempu i nivou forme."
-                    index={1}
-                    link="/usluge"
-                />
+  return (
+    <section className="py-5 px-[5vw] flex flex-col gap-6">
+      <h2>Usluge</h2>
 
-                <ServiceHomeCard
-                    title="Kondiciona priprema sportista"
-                    text="Specifična priprema koja podiže performanse i smanjuje rizik od povrede."
-                    index={2}       
-                    link="/usluge"           
-                />
-
-                <ServiceHomeCard
-                    title="Vođeni trening"
-                    text="Grupni trening u motivišućoj atmosferi uz stručno vođenje."
-                    index={3}
-                    link="/usluge"
-                />
-            </div>
-        </section>
-    )
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {preview.map((service, i) => (
+          <ServiceHomeCard
+            key={service.slug}
+            index={i + 1}
+            title={service.title}
+            text={service.desc}
+            link="/usluge"
+          />
+        ))}
+      </div>
+    </section>
+  );
 }

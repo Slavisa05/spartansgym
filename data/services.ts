@@ -12,6 +12,10 @@ export interface Service {
         price: string;
         suffix?: string;
     }[];
+    /**
+     * Slug-ovi teretana u kojima se usluga nudi (jedini izvor istine za prikaz
+     * po teretani). Prazan niz = nije vezano za lokaciju, vidi se samo na /usluge.
+     */
     gymSlugs: string[];
 }
 
@@ -111,7 +115,8 @@ export const services: Service[] = [
         ],
         time: "60",
         price: "4500",
-        gymSlugs: [""],
+        // Nije vezano za konkretnu teretanu (odvojeni bazeni) — prikazuje se samo na /usluge.
+        gymSlugs: [],
     },
     {
         slug: "korekcija-telesnih-deformiteta",
@@ -167,7 +172,8 @@ export const services: Service[] = [
             "Naš cilj je da ti pomognemo da hrana postane saveznik u ostvarivanju tvog potencijala i da kroz edukaciju uspostaviš balans koji traje.",
         ],
         price: "4500",
-        gymSlugs: [""],
+        // Nutricionista radi sa svima, i van teretana — prikazuje se samo na /usluge.
+        gymSlugs: [],
     },
     {
         slug: "joga",

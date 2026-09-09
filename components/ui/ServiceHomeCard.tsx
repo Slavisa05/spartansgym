@@ -9,7 +9,7 @@ interface ServiceHomeCardProps {
 }
 
 export default function ServiceHomeCard({ index, title, text, link }: ServiceHomeCardProps) {
-  const num = String(index + 1).padStart(2, "0");
+  const num = String(index).padStart(2, "0");
 
   return (
     <div className="group relative flex flex-col justify-between gap-4 h-65 p-7
@@ -31,13 +31,13 @@ export default function ServiceHomeCard({ index, title, text, link }: ServiceHom
       </div>
 
       {/* tekst */}
-      <p className="text-sm text-text-secondary leading-relaxed">
+      <p className="text-sm text-text-secondary leading-relaxed line-clamp-3">
         {text}
       </p>
 
       {/* footer — link + strelica */}
       <div className="flex items-center justify-between">
-        <span className="text-[11px] font-semibold tracking-wideset uppercase text-accent">
+        <span className="text-[11px] font-semibold tracking-widest uppercase text-accent">
           Saznaj više
         </span>
         {link ? (
