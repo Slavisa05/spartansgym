@@ -1,8 +1,13 @@
+import { gyms } from "@/data/gym";
+import { trainers } from "@/data/trainers";
+
+// Brojevi teretana i trenera se računaju iz data/ (uvek tačni).
+// "God. iskustva" i "Vežbača" su okvirne brojke — potvrditi sa vlasnikom.
 const stats = [
-  { value: "4",    suffix: "",  label: "Teretane"      },
-  { value: "10",   suffix: "+", label: "God. iskustva" },
-  { value: "20",   suffix: "",  label: "Trenera"       },
-  { value: "10k",  suffix: "+", label: "Vežbača"       },
+  { value: String(gyms.length), suffix: "", label: "Teretane" },
+  { value: "10", suffix: "+", label: "God. iskustva" },
+  { value: String(trainers.length), suffix: "", label: "Trenera" },
+  { value: "10k", suffix: "+", label: "Vežbača" },
 ];
 
 export default function StatsBar() {

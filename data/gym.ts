@@ -20,6 +20,10 @@ export interface Gym {
   slug: string;
   type: GymType;
   name: string;
+  /** Kratak naziv za navigaciju i kartice, npr. "Gym 1". */
+  shortName: string;
+  /** Jedna rečenica za karticu na početnoj strani. */
+  tagline: string;
   img: string;
   map?: string;
   address?: string;
@@ -37,11 +41,17 @@ export function getGymTestimonials(gym: Gym) {
   return allTestimonials.filter((t) => gym.testimonialIds?.includes(t.id));
 }
 
+/** Teretane koje su otvorene (bez "coming-soon" lokacija). */
+export const openGyms = () => gyms.filter((g) => g.type !== "coming-soon");
+
 export const gyms: Gym[] = [
   {
     slug: "gym-1",
     type: "standard",
     name: "Fitness Centar Spartans Gym 1",
+    shortName: "Gym 1",
+    tagline:
+      "Personalni, polu-personalni i vođeni treninzi uz iskusan tim trenera i modernu opremu, u centru Uba.",
     img: "/gym1.jpg",
     map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.6343536272584!2d20.073620675702493!3d44.461168399801544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a1e833ce19671%3A0x47cb1d63c083fbec!2sFitness%20Centar%20%22Spartans%20Gym%22!5e0!3m2!1ssr!2srs!4v1777813514433!5m2!1ssr!2srs",
     address: "Stevana Borote 11, Ub",
@@ -72,14 +82,17 @@ export const gyms: Gym[] = [
       "/gym1/s13-gym1.jpg", "/gym1/s14-gym1.jpg", "/gym1/s15-gym1.jpg",
       "/gym1/s16-gym1.jpg", "/gym1/s17-gym1.jpg", "/gym1/s18-gym1.jpg",
       "/gym1/s19-gym1.jpg", "/gym1/s20-gym1.jpg", "/gym1/s21-gym1.jpg",
-      "/gym1/s22-gym1.jpg", 
+      "/gym1/s22-gym1.jpg",
     ],
-    testimonialIds: [1],
+    testimonialIds: [101, 102, 103, 104, 105, 106],
   },
   {
     slug: "gym-2",
     type: "standard",
     name: "Fitness Centar Spartans Gym 2",
+    shortName: "Gym 2",
+    tagline:
+      "Vođeni i personalni treninzi u Lajkovcu — isti proveren sistem rada kroz koji je prošlo preko 3000 vežbača.",
     img: "/gym2.jpg",
     map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2852.0116390541143!2d20.163110675697386!3d44.37135120568891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4759f90e6e5b23bf%3A0x6bb172b0d6f9495c!2sFitness%20Centar%20%22Spartans%20Gym%22%20Lajkovac!5e0!3m2!1ssr!2srs!4v1777961550061!5m2!1ssr!2srs",
     address: "Kralja Petra Prvog 11, Ub",
@@ -107,12 +120,15 @@ export const gyms: Gym[] = [
       "/gym2/s10-gym2.jpeg", "/gym2/s11-gym2.jpeg", "/gym2/s12-gym2.jpeg",
       "/gym2/s13-gym2.jpeg",
     ],
-    testimonialIds: [2, 3, 4],
+    testimonialIds: [201, 202, 203, 204, 205, 206],
   },
   {
     slug: "gym-3",
     type: "free",
     name: "Fitness Centar Spartans Gym 3",
+    shortName: "Gym 3",
+    tagline:
+      "Teretana slobodnog tipa u Ubu — treniraj kad hoćeš, svojim tempom, uz raznovrsnu opremu i slobodne tegove.",
     img: "/gym3.jpg",
     map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2847.972432516072!2d20.06775977570211!3d44.45423650025633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a1f533843894d%3A0x9d35aeafd3baaefe!2sFitness%20centar%20Spartans%20Gym%203!5e0!3m2!1ssr!2srs!4v1777962185205!5m2!1ssr!2srs",
     address: "Prvog Maja 61, Ub",
@@ -143,7 +159,7 @@ export const gyms: Gym[] = [
       "/gym3/s16-gym3.jpg", "/gym3/s17-gym3.jpg", "/gym3/s18-gym3.jpg",
       "/gym3/s19-gym3.jpg", "/gym3/s20-gym3.jpg", "/gym3/s21-gym3.jpg",
     ],
-    testimonialIds: [5],
+    testimonialIds: [301, 302, 303, 304, 305, 306],
     pricing: [
       { name: "Dnevna karta", price: 500, trajanje: "1 dan", brojProlazaka: "1" },
       { name: "Mesečna članarina", price: 3800, trajanje: "31 dan", brojProlazaka: "neograničeno" },
@@ -161,6 +177,9 @@ export const gyms: Gym[] = [
     slug: "gym-4",
     type: "coming-soon",
     name: "Fitness Centar Spartans Gym 4",
+    shortName: "Gym 4",
+    tagline: "Uskoro otvaramo još jednu lokaciju.",
+    // TODO: dodati pravu fotografiju lokacije u /public/gym4.jpg (trenutno je nema).
     img: "/gym4.jpg",
   },
 ];
