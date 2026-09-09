@@ -93,6 +93,19 @@ Vidi `.env.example`. Ključne: `NEXT_PUBLIC_SITE_URL`, `RESEND_API_KEY`,
 
 > Dok domen nije verifikovan u Resend-u, `LEAD_TO` mora da bude adresa vlasnika
 > Resend naloga. Posle verifikacije prebaciti na `fitnesscentarspartansgym@gmail.com`.
+> `NEXT_PUBLIC_*` se „upeku" u kod pri `npm run build` — menjanje traži novi build.
+
+## Deploy (Faza 3)
+
+VPS (Ubuntu) + PM2 + Nginx. Pokreće se kao `next start` (ne `output: standalone`)
+jer tako optimizacija slika i keš rade bez konfiguracije i preživljavaju deploy.
+
+- `ecosystem.config.js` — PM2, `next start -p 3000` iz `/var/www/spartansgym`
+- `deploy/nginx.conf` — reverse proxy (prosleđuje `X-Forwarded-For` koji koristi
+  rate-limit u `/api/contact`), www→non-www, gzip
+- `deploy.sh` — `git pull → npm ci → npm run build → pm2 reload`
+- `DEPLOY.md` — pun vodič (prvo podešavanje, Certbot, troubleshooting, checklist)
+- `.nvmrc` (20), `engines.node >=20.9.0`
 
 ## Konvencije
 
@@ -111,7 +124,6 @@ Vidi `.env.example`. Ključne: `NEXT_PUBLIC_SITE_URL`, `RESEND_API_KEY`,
 - Kupiti domen → verifikovati u Resend-u → prebaciti `LEAD_TO` i `RESEND_FROM`.
 - Napraviti GA4 property i ubaciti `NEXT_PUBLIC_GA_ID`.
 - Napraviti Google Apps Script Web App za Sheet i ubaciti `GOOGLE_SHEET_WEBHOOK_URL`.
-- `next.config.ts` je prazan — treba `output: "standalone"` za VPS (Faza 3).
 - Nema OG slike (`opengraph-image`) — može dinamička preko `next/og` (Faza 4).
 
 ## Plan rada (fazno, grana po fazi)
@@ -119,6 +131,7 @@ Vidi `.env.example`. Ključne: `NEXT_PUBLIC_SITE_URL`, `RESEND_API_KEY`,
 1. **Arhitektura + podaci** — konsolidacija sadržaja u `data/`, čišćenje. ✅
 2. **SEO + lead-gen** — metadata, sitemap/robots, JSON-LD, `/api/contact` (honeypot,
    rate-limit, Google Sheet kopija), politika privatnosti, GA4 + consent, `lang="sr"`. ✅
-3. **Deploy** — `output: standalone`, PM2 `ecosystem.config.js`, Nginx, `deploy.sh`, `DEPLOY.md`.
+3. **Deploy** — PM2 `ecosystem.config.js`, `deploy/nginx.conf`, `deploy.sh`, `DEPLOY.md`,
+   `.nvmrc`, `next.config.ts` (`poweredByHeader: false`). ✅
 4. **Dizajn polish** — tipografska skala, fiksni navbar bez `pt-[30vh]`,
    jedinstven `Button` sa `href`, `not-found` / `loading` / `error`, optimizacija slika/videa, OG slika.
