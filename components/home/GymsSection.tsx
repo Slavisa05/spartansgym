@@ -6,7 +6,7 @@ export default function GymSection() {
   const list = openGyms();
 
   return (
-    <section id="teretane" className="px-[5vw] py-5 flex flex-col gap-6">
+    <section id="teretane" className="px-page py-5 flex flex-col gap-6">
       <h2>Teretane</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {list.map((gym) => (

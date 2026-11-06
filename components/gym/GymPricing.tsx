@@ -6,7 +6,7 @@ interface GymPricingProps {
 
 export default function GymPricing({ pricing }: GymPricingProps) {
   return (
-    <section className="px-[5vw] py-20">
+    <section className="px-page py-20">
       <h2 className="text-center mb-12">Cenovnik</h2>
       <div className="grid md:grid-cols-3 gap-6 mx-auto">
         {pricing.map((option) => (

@@ -6,7 +6,7 @@ export default function ServicesSection() {
   const preview = services.slice(0, 3);
 
   return (
-    <section className="py-5 px-[5vw] flex flex-col gap-6">
+    <section className="py-5 px-page flex flex-col gap-6">
       <h2>Usluge</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

@@ -150,8 +150,9 @@ export default function PrivacyPolicyPage() {
           <p>
             Neophodni kolačići su uvek aktivni jer omogućavaju osnovno
             funkcionisanje sajta. Analitički kolačići se postavljaju samo ako ih
-            prihvatite u baneru. Izbor možete promeniti brisanjem podataka sajta u
-            vašem pregledaču.
+            prihvatite u baneru. Izbor možete promeniti u svakom trenutku preko linka
+            „Podešavanja kolačića&ldquo; u dnu stranice — ako povučete pristanak,
+            analitički kolačići se brišu.
           </p>
         </Section>
 

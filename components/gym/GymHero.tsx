@@ -7,7 +7,7 @@ interface GymHeroProps {
 
 export default function GymHero({ name, img }: GymHeroProps) {
     return(
-        <section className="relative px-[5vw] flex items-center justify-center min-h-screen">
+        <section className="relative px-page flex items-center justify-center min-h-screen">
             <Image
                 src={img}
                 alt="Slika teretane"

@@ -6,36 +6,7 @@ Marketing / prezentacioni sajt za lanac teretana "Fitness Centar Spartans Gym"
 (Ub i Lajkovac). **Cilj:** posetilac vidi teretane, trenere i usluge → ode na
 `/kontakt` i popuni formu (primarni lead) ili pozove telefonom (sekundarni).
 
-## Tehnologija
-
-- **Next.js 16.2.4** (App Router, Turbopack) + React 19
-- **Tailwind CSS v4** (konfiguracija je u `app/globals.css`, `@theme` blok — nema `tailwind.config`)
-- **TypeScript**, path alias `@/*` → koren projekta
-- `framer-motion` (samo `TestimonialSlider`), `lucide-react` (ikone),
-  `yet-another-react-lightbox` (galerija), `resend` (slanje mejla iz kontakt forme)
-- Hosting (planirano): **Ubuntu VPS + PM2 + Nginx**, domen `spartansgym.rs`
-
-## Struktura
-
-```
-app/
-  layout.tsx            root layout — Navbar + children + Footer, fontovi, <Metadata>
-  page.tsx              početna (kompozicija home sekcija)
-  o-nama/              /o-nama — istorija, misija, vrednosti, ceo tim
-  usluge/             /usluge — sve usluge (ServiceCard sa modalom)
-  teretane/[slug]/     dinamička stranica teretane (podaci iz data/gym.ts)
-  kontakt/             /kontakt — Contact.tsx (forma u 3 koraka)
-  api/contact/route.ts  POST — šalje mejl preko Resend-a
-components/
-  home/                sekcije početne strane
-  gym/                 sekcije stranice teretane
-  about/               sekcije /o-nama
-  ui/                  reupotrebljive kartice + Button
-  layout/              Navbar, Footer
-  shared/              CtaSection, TestimonialSlider
-data/                  ⇐ JEDINI IZVOR ISTINE za sadržaj
-types/
-```
+- **Tailwind CSS v4** — konfiguracija je u `app/globals.css`, `@theme` blok (nema `tailwind.config`).
 
 ## Sadržaj i "single source of truth"
 
@@ -80,7 +51,8 @@ skinuti `placeholder: true`.
   na stranici teretane. Geo se parsira iz Google Maps embed URL-a (`getGymGeo`).
 - Analitika (`components/analytics/`): GA4 + Consent Mode v2. Bez `NEXT_PUBLIC_GA_ID`
   se ne učitava ništa (ni skripta ni baner). `CookieBanner` čuva izbor u
-  `localStorage` (`sg-cookie-consent`).
+  `localStorage` (`sg-cookie-consent`). Link „Podešavanja kolačića" u footer-u
+  (`CookieSettingsButton`) ponovo otvara baner; „Odbij" briše `_ga*` kolačiće.
 - `/api/contact`: honeypot polje `company`, rate-limit (5 / 10 min po IP, u memoriji),
   primalac/pošiljalac iz env-a, opciona kopija u Google Sheet (Apps Script webhook,
   ne ruši odgovor ako padne).
@@ -99,13 +71,8 @@ Vidi `.env.example`. Ključne: `NEXT_PUBLIC_SITE_URL`, `RESEND_API_KEY`,
 
 VPS (Ubuntu) + PM2 + Nginx. Pokreće se kao `next start` (ne `output: standalone`)
 jer tako optimizacija slika i keš rade bez konfiguracije i preživljavaju deploy.
-
-- `ecosystem.config.js` — PM2, `next start -p 3000` iz `/var/www/spartansgym`
-- `deploy/nginx.conf` — reverse proxy (prosleđuje `X-Forwarded-For` koji koristi
-  rate-limit u `/api/contact`), www→non-www, gzip
-- `deploy.sh` — `git pull → npm ci → npm run build → pm2 reload`
-- `DEPLOY.md` — pun vodič (prvo podešavanje, Certbot, troubleshooting, checklist)
-- `.nvmrc` (20), `engines.node >=20.9.0`
+`deploy/nginx.conf` mora da prosleđuje `X-Forwarded-For` — na njemu radi rate-limit
+u `/api/contact`. Pun vodič: `DEPLOY.md`.
 
 ## Dizajn sistem (Faza 4)
 
@@ -120,8 +87,6 @@ jer tako optimizacija slika i keš rade bez konfiguracije i preživljavaju deplo
   Condensed nosi samo 600/700 — ne koristiti `font-weight` iznad 700.
 - `Button` (`components/ui/Button.tsx`): jedini CTA element. Sa `href` renderuje
   `<Link>`, bez njega `<button>` (podržava `onClick`, `isLoading`, `type`).
-- `app/not-found.tsx`, `app/loading.tsx`, `app/error.tsx` — postoje.
-- `app/opengraph-image.tsx` — dinamička OG slika (`next/og`).
 
 ## Konvencije
 
@@ -142,17 +107,7 @@ jer tako optimizacija slika i keš rade bez konfiguracije i preživljavaju deplo
 - Napraviti Google Apps Script Web App za Sheet i ubaciti `GOOGLE_SHEET_WEBHOOK_URL`.
 - Hero video je izvorno 848×478 — na velikim ekranima je blago mek (nema hi-res original).
 
-## Plan rada (fazno, grana po fazi)
+## Status
 
-1. **Arhitektura + podaci** — konsolidacija sadržaja u `data/`, čišćenje. ✅
-2. **SEO + lead-gen** — metadata, sitemap/robots, JSON-LD, `/api/contact` (honeypot,
-   rate-limit, Google Sheet kopija), politika privatnosti, GA4 + consent, `lang="sr"`. ✅
-3. **Deploy** — PM2 `ecosystem.config.js`, `deploy/nginx.conf`, `deploy.sh`, `DEPLOY.md`,
-   `.nvmrc`, `next.config.ts` (`poweredByHeader: false`). ✅
-4. **Dizajn polish** — tipografska skala + tokeni, `px-page`/`pt-page` (kraj `pt-[30vh]`),
-   navbar kompaktniji + blur/border, jedinstven `Button` sa `href` (+ popravljena hero
-   dugmad), `not-found`/`loading`/`error`, `opengraph-image`, optimizacija logo-a i
-   hero videa, focus stanja, `lang="sr"`. ✅
-
-Sve četiri faze su gotove. Sledeći korak je vlasnikov (domen, sadržaj, nalozi) —
+Rad je išao fazno, grana po fazi (`faza-1-…` do `faza-4-dizajn`). Sve četiri faze su gotove. Sledeći korak je vlasnikov (domen, sadržaj, nalozi) —
 vidi „Poznati TODO" i `DEPLOY.md` checklist.

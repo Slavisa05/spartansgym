@@ -7,7 +7,7 @@ export default function TeamSection() {
   const preview = trainers.slice(0, 3);
 
   return (
-    <section className="px-[5vw] py-5 flex flex-col gap-6">
+    <section className="px-page py-5 flex flex-col gap-6">
       <h2>Treneri</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

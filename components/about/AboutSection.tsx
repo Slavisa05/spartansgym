@@ -140,7 +140,7 @@ function ValuesSection() {
 
 export default function AboutSection() {
     return (
-        <section className="px-[5vw]">
+        <section className="px-page">
             <HistorySection />
             <MissionVisionSection />
             <ValuesSection />

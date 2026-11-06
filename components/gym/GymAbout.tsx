@@ -6,7 +6,7 @@ export default function GymAbout({ text }: GymAboutProps) {
     const [intro, ...rest] = text;
 
     return(
-        <section className="px-[5vw] py-10">
+        <section className="px-page py-10">
             <div className="mx-auto  rounded-2xl border border-border bg-bg-secondary p-5 md:p-8">
                 <div className="mb-6">
                     <p className="text-xs uppercase tracking-widest text-accent">O teretani</p>
