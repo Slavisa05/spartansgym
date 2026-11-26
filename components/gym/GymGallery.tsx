@@ -19,7 +19,7 @@ export default function GymGallery({ images }: GymGalleryProps) {
     }
 
     return(
-        <section className="px-[5vw] py-10">
+        <section className="px-page py-10">
             <div className="mb-6 max-w-2xl">
                 <h2 className="mb-3">Galerija teretane</h2>
                 <p className="text-text-secondary">

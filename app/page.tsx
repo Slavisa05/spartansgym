@@ -15,7 +15,7 @@ export default function Home() {
       <GymSection />
       <TeamSection />
       <TestimonialSection />
-      <CtaSection title="Želite da se upišešete u neku od naših teretana?" />
+      <CtaSection title="Želite da se upišete u neku od naših teretana?" />
     </main>
   );
 }

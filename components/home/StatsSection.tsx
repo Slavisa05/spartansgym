@@ -12,7 +12,7 @@ const stats = [
 
 export default function StatsBar() {
   return (
-    <section className="px-[5vw] py-5">
+    <section className="px-page py-5">
       <div className="grid grid-cols-2 md:grid-cols-4 rounded-2xl overflow-hidden">
         {stats.map((stat, i) => (
           <div

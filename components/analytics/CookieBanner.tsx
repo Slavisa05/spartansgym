@@ -1,10 +1,30 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
-import { GA_ID, CONSENT_STORAGE_KEY } from "./config";
+import { GA_ID, CONSENT_STORAGE_KEY, OPEN_COOKIE_SETTINGS_EVENT } from "./config";
 
 const subscribe = () => () => {};
+
+/**
+ * Briše GA kolačiće (_ga, _ga_XXXX) ako ih je posetilac ranije prihvatio pa
+ * sada povlači pristanak. GA ih postavlja na najviši domen, pa brišemo i
+ * za trenutni host i za "eTLD+1" varijantu.
+ */
+function deleteGaCookies() {
+  const host = location.hostname;
+  const parts = host.split(".");
+  const domains = ["", host, `.${host}`];
+  if (parts.length > 2) domains.push(`.${parts.slice(-2).join(".")}`);
+
+  for (const cookie of document.cookie.split(";")) {
+    const name = cookie.split("=")[0].trim();
+    if (!name.startsWith("_ga")) continue;
+    for (const d of domains) {
+      document.cookie = `${name}=; Max-Age=0; path=/${d ? `; domain=${d}` : ""}`;
+    }
+  }
+}
 
 /** true dok posetilac nije izabrao (prihvatio/odbio) kolačiće. */
 function useConsentPending(): boolean {
@@ -29,8 +49,17 @@ function useConsentPending(): boolean {
 export default function CookieBanner() {
   const pending = useConsentPending();
   const [dismissed, setDismissed] = useState(false);
+  // Ponovo otvoren iz footer-a ("Podešavanja kolačića").
+  const [reopened, setReopened] = useState(false);
 
-  if (!GA_ID || !pending || dismissed) return null;
+  useEffect(() => {
+    const open = () => setReopened(true);
+    window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, open);
+    return () => window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, open);
+  }, []);
+
+  if (!GA_ID) return null;
+  if (!reopened && (!pending || dismissed)) return null;
 
   const choose = (value: "granted" | "denied") => {
     try {
@@ -39,14 +68,16 @@ export default function CookieBanner() {
       /* privatni režim — samo sakrij baner */
     }
     window.gtag?.("consent", "update", { analytics_storage: value });
+    if (value === "denied") deleteGaCookies();
     setDismissed(true);
+    setReopened(false);
   };
 
   return (
     <div
       role="dialog"
       aria-label="Obaveštenje o kolačićima"
-      className="fixed inset-x-0 bottom-0 z-[60] px-[5vw] pb-4"
+      className="fixed inset-x-0 bottom-0 z-[60] px-page pb-4"
     >
       <div className="mx-auto flex max-w-3xl flex-col gap-4 rounded-2xl border border-border bg-bg-secondary/95 p-5 backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm leading-relaxed text-text-secondary">

@@ -193,4 +193,13 @@ export const gyms: Gym[] = [
     // TODO: dodati pravu fotografiju lokacije u /public/gym4.jpg (trenutno je nema).
     img: "/gym4.jpg",
   },
+  {
+    slug: "gym-5",
+    type: "coming-soon",
+    name: "Fitness Centar Spartans Gym 5",
+    shortName: "Gym 5",
+    tagline: "Uskoro otvaramo još jednu lokaciju.",
+    // TODO: dodati pravu fotografiju lokacije u /public/gym4.jpg (trenutno je nema).
+    img: "/gym5.jpg",
+  },
 ];

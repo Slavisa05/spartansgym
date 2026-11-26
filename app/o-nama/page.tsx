@@ -16,7 +16,7 @@ export default function About() {
             <AboutHero />
             <AboutSection />
             <AboutTeam />
-            <CTASection title="Želite da se upišešete u neku od naših teretana?" />
+            <CTASection title="Želite da se upišete u neku od naših teretana?" />
         </main>
     )
 }

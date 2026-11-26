@@ -10,12 +10,6 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-/*
- * ⚠️  ŠABLON — pravni tekst treba da pregleda i dopuni vlasnik / pravnik.
- * Popuniti sve oznake u uglastim zagradama: [PUN NAZIV PRAVNOG LICA], [ADRESA],
- * [MATIČNI BROJ / PIB], [BROJ DANA/MESECI].
- */
-
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="flex flex-col gap-3">
@@ -31,7 +25,7 @@ export default function PrivacyPolicyPage() {
   const updated = "2026";
 
   return (
-    <main className="px-[5vw] pt-[30vh] pb-16">
+    <main className="px-page pt-page pb-16">
       <div className="mx-auto flex max-w-3xl flex-col gap-10">
         <header className="flex flex-col gap-3">
           <p className="text-xs uppercase tracking-widest text-accent">Pravno</p>
@@ -45,8 +39,8 @@ export default function PrivacyPolicyPage() {
         <Section title="1. Ko je rukovalac podacima">
           <p>
             Rukovalac podacima je{" "}
-            <strong className="text-text-primary">[PUN NAZIV PRAVNOG LICA]</strong>,
-            sa sedištem na adresi [ADRESA], matični broj / PIB: [MATIČNI BROJ / PIB]
+            <strong className="text-text-primary">Fitness centar Spartans Gym doo</strong>,
+            sa sedištem na adresi Stevana Borote 11, Ub, matični broj / PIB: 21279595 / 109983424
             (u daljem tekstu „Spartans Gym” ili „mi”).
           </p>
           <p>
@@ -121,7 +115,7 @@ export default function PrivacyPolicyPage() {
 
         <Section title="5. Koliko dugo čuvamo podatke">
           <p>
-            Podatke iz kontakt forme čuvamo najduže [BROJ DANA/MESECI] od poslednjeg
+            Podatke iz kontakt forme čuvamo najduže 90 od poslednjeg
             kontakta, odnosno dok traje naša poslovna saradnja. Nakon toga se
             podaci brišu ili anonimizuju. Analitički podaci se čuvaju u skladu sa
             podešavanjima Google Analytics-a.
@@ -150,8 +144,9 @@ export default function PrivacyPolicyPage() {
           <p>
             Neophodni kolačići su uvek aktivni jer omogućavaju osnovno
             funkcionisanje sajta. Analitički kolačići se postavljaju samo ako ih
-            prihvatite u baneru. Izbor možete promeniti brisanjem podataka sajta u
-            vašem pregledaču.
+            prihvatite u baneru. Izbor možete promeniti u svakom trenutku preko linka
+            „Podešavanja kolačića&ldquo; u dnu stranice — ako povučete pristanak,
+            analitički kolačići se brišu.
           </p>
         </Section>
 

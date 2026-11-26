@@ -13,7 +13,7 @@ export default function GymServices({ gymSlug }: GymServicesProps) {
   }
 
   return (
-    <section className="px-[5vw] py-10 flex flex-col gap-8">
+    <section className="px-page py-10 flex flex-col gap-8">
       <h2>Usluge u ovoj teretani</h2>
       <div className="grid md:grid-cols-3 gap-4">
         {gymServices.map((service, index) => (

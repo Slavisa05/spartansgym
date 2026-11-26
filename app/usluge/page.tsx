@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function Services() {
     return(
         <main>
-            <section className="px-[5vw] pt-[30vh] pb-10 min-h-screen w-full">
+            <section className="px-page pt-page pb-10 min-h-screen w-full">
                 <div className="grid md:grid-cols-3 gap-8">
                     {services.map((service) => (
                         <ServiceCard
