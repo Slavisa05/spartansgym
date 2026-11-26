@@ -1,4 +1,5 @@
 import { History, Target, Eye, Heart, Shield, Users, Star } from "lucide-react"
+import { text } from "stream/consumers"
 
 // ─── Istorija ────────────────────────────────────────────────────────────────
 
@@ -9,6 +10,8 @@ function HistorySection() {
         { year: "2020", text: "Otvaranje teretane u Lajkovcu" },
         { year: "2023", text: "Otvaranje 3. teretane teretane slobodnog tipa" },
         { year: "Danas", text: "Rastuća zajednica rekreativaca i sportista koji svakodnevno napreduju zajedno." },
+        {year: "2026", text: "Otvaranje 4. teretane u Valjevu uskoro"},
+        {year: "2026", text: "Otvaranje 5. teretane u Beogradu uskoro"},
     ]
 
     return (
@@ -140,7 +143,7 @@ function ValuesSection() {
 
 export default function AboutSection() {
     return (
-        <section className="px-[5vw]">
+        <section className="px-page">
             <HistorySection />
             <MissionVisionSection />
             <ValuesSection />

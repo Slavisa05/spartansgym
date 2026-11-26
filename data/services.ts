@@ -12,6 +12,10 @@ export interface Service {
         price: string;
         suffix?: string;
     }[];
+    /**
+     * Slug-ovi teretana u kojima se usluga nudi (jedini izvor istine za prikaz
+     * po teretani). Prazan niz = nije vezano za lokaciju, vidi se samo na /usluge.
+     */
     gymSlugs: string[];
 }
 
@@ -20,7 +24,7 @@ export const services: Service[] = [
         slug: "personalni-trening",
         title: "Personalni trening",
         desc: "Naši personalni treninzi su prilagođeni vašim ciljevima, nivou kondicije i tempu napretka. Trenirajte sa iskusnim trenerom koji prati svaki vaš korak i motiviše vas da postignete maksimum.",
-        img: "/gym1.jpg",
+        img: "/grupna2.jpeg",
         paragraphs: [
             "Personalni trening je najefikasniji način da dostigneš svoje ciljeve — bilo da želiš da smršaš, dobiješ mišićnu masu, poboljšaš kondiciju ili jednostavno uvedeš više discipline u svoj životni stil. Svaki trening je prilagođen isključivo tebi, tvojim mogućnostima i ciljevima.",
             "Uz stalnu podršku i praćenje stručnog trenera, naučićeš pravilnu tehniku izvođenja vežbi, izbeći povrede i ostvariti maksimum rezultata u najkraćem mogućem roku.",
@@ -56,7 +60,7 @@ export const services: Service[] = [
         slug: "vodjeni-trening",
         title: "Vođeni trening",
         desc: "Pridružite se dinamičnim vođenim treninzima i uživajte u motivaciji zajednice. Od kardio treninga do funkcionalnog vežbanja, svaki čas je prilika za zabavu i napredak.",
-        img: "/gym1.jpg",
+        img: "/grupna1.jpeg",
         paragraphs: [
             "Vođeni trening je savršen izbor za sve koji vole dobru energiju, motivaciju i zajednički rad. Vežbanje u grupi donosi posebnu atmosferu koja inspiriše i podstiče da iz sebe izvučeš maksimum, bez obzira na nivo fizičke spreme.",
             "Treninzi su dinamični, raznovrsni i osmišljeni tako da aktiviraju celo telo, poboljšaju kondiciju i povećaju snagu. Svaki čas vodi stručan trener koji pazi na pravilno izvođenje vežbi i motiviše te tokom celog treninga.",
@@ -111,7 +115,8 @@ export const services: Service[] = [
         ],
         time: "60",
         price: "4500",
-        gymSlugs: [""],
+        // Nije vezano za konkretnu teretanu (odvojeni bazeni) — prikazuje se samo na /usluge.
+        gymSlugs: [],
     },
     {
         slug: "korekcija-telesnih-deformiteta",
@@ -167,7 +172,8 @@ export const services: Service[] = [
             "Naš cilj je da ti pomognemo da hrana postane saveznik u ostvarivanju tvog potencijala i da kroz edukaciju uspostaviš balans koji traje.",
         ],
         price: "4500",
-        gymSlugs: [""],
+        // Nutricionista radi sa svima, i van teretana — prikazuje se samo na /usluge.
+        gymSlugs: [],
     },
     {
         slug: "joga",

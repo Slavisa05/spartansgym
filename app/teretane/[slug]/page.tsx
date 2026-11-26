@@ -1,6 +1,8 @@
 import { gyms, getGymTestimonials } from "@/data/gym";
 import { notFound } from "next/navigation";
 import type { Metadata } from 'next'
+import JsonLd from "@/components/seo/JsonLd";
+import { gymSchema, breadcrumbSchema } from "@/components/seo/schema";
 import GymHero from "@/components/gym/GymHero";
 import GymInfo from "@/components/gym/GymInfo";
 import GymAbout from "@/components/gym/GymAbout";
@@ -16,22 +18,36 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+export function generateStaticParams() {
+  return gyms.map((gym) => ({ slug: gym.slug }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const gym = gyms.find((g) => g.slug === slug);
 
   if (!gym) {
     return {
-      title: "Teretana nije pronadjena | Spartans Gym",
-      description: "Trazeni objekat nije pronadjen.",
+      title: "Teretana nije pronađena",
+      description: "Traženi objekat nije pronađen.",
     };
   }
 
+  const description =
+    gym.about?.[0] ??
+    gym.tagline ??
+    "Savremeni trening, proverena oprema i stručan tim trenera u Spartans Gym-u.";
+
   return {
-    title: `${gym.name} | Spartans Gym`,
-    description:
-      gym.about?.[0] ??
-      "Savremeni trening, proverena oprema i strucni tim trenera u Spartans Gym.",
+    title: gym.name,
+    description,
+    alternates: { canonical: `/teretane/${gym.slug}` },
+    openGraph: {
+      title: `${gym.name} | Spartans Gym`,
+      description,
+      url: `/teretane/${gym.slug}`,
+      images: [{ url: gym.img }],
+    },
   };
 }
 
@@ -47,9 +63,15 @@ export default async function GymPage({
     notFound();
   }
 
+  const breadcrumb = breadcrumbSchema([
+    { name: "Početna", path: "/" },
+    { name: gym.shortName, path: `/teretane/${gym.slug}` },
+  ]);
+
   if (gym.type === "coming-soon") {
     return (
       <main>
+        <JsonLd data={breadcrumb} />
         <GymComingSoon name={gym.name} img={gym.img} />
       </main>
     );
@@ -57,6 +79,8 @@ export default async function GymPage({
 
   return (
     <main>
+      <JsonLd data={gymSchema(gym)} />
+      <JsonLd data={breadcrumb} />
       <GymHero name={gym.name} img={gym.img} />
       <GymInfo
         map={gym.map!}

@@ -12,7 +12,7 @@ interface GymInfoProps {
 
 export default function GymInfo({ map, address, openTime, closeTime, workingHours, phone }: GymInfoProps) {
     return(
-        <section className="px-[5vw] py-10">
+        <section className="px-page py-10">
             <div className="grid md:grid-cols-2 gap-8">
                 <div className="rounded-xl overflow-hidden min-h-80 border border-border bg-bg-secondary">
                     <iframe

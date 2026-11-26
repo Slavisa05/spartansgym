@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 
 type FormState = {
     fullName: string;
@@ -12,6 +13,8 @@ type FormState = {
     gym: string;
     startWhen: string;
     note: string;
+    /** Honeypot — pravi korisnici ovo polje ne vide ni ne popunjavaju. */
+    company: string;
 };
 
 const serviceOptions = [
@@ -67,6 +70,7 @@ export default function Contact() {
         gym: "",
         startWhen: "",
         note: "",
+        company: "",
     });
 
     const progress = (step / 3) * 100;
@@ -118,6 +122,7 @@ export default function Contact() {
             gym: form.gym,
             startWhen: form.startWhen,
             note: form.note.trim(),
+            company: form.company.trim(),
         };
 
         try {
@@ -134,7 +139,7 @@ export default function Contact() {
     }
     
     return (
-        <main className="px-[5vw] pt-[30vh] pb-10">
+        <main className="px-page pt-page pb-10">
             <section className="mx-auto w-full max-w-3xl rounded-2xl border border-border bg-bg-secondary/70 p-4 md:rounded-3xl md:p-8">
                 <div className="mb-6">
                     <p className="text-xs uppercase tracking-widest text-accent">Kontakt forma</p>
@@ -158,6 +163,19 @@ export default function Contact() {
                 </div>
 
                 <form className="space-y-6" onSubmit={handleSubmit}>
+                    {/* Honeypot — sakriveno od ljudi, hvata botove */}
+                    <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+                        <label htmlFor="company">Firma (ne popunjavati)</label>
+                        <input
+                            id="company"
+                            type="text"
+                            tabIndex={-1}
+                            autoComplete="off"
+                            value={form.company}
+                            onChange={(event) => updateField("company", event.target.value)}
+                        />
+                    </div>
+
                     {step === 1 && (
                         <div className="space-y-4">
                             <h2 className="text-2xl md:text-3xl">Korak 1 - O tebi</h2>
@@ -307,6 +325,19 @@ export default function Contact() {
                             </button>
                         )}
                     </div>
+
+                    {step === 3 && (
+                        <p className="text-xs leading-relaxed text-text-secondary">
+                            Slanjem forme prihvataš{" "}
+                            <Link
+                                href="/politika-privatnosti"
+                                className="text-accent underline underline-offset-2 hover:text-accent-dim"
+                            >
+                                politiku privatnosti
+                            </Link>
+                            .
+                        </p>
+                    )}
 
                     {step === 3 && status === "ok" && (
                         <p className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-300">
