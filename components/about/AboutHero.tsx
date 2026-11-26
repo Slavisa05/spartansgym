@@ -11,11 +11,11 @@ export default function AboutHero() {
 
                 <div className="flex items-center justify-center">
                     <Image 
-                        src="/gym1/s1-gym1.jpg"
+                        src="/glavna_grupna.jpeg"
                         alt="slika teretane"
                         width={800}
                         height={600}
-                        className="w-[85%] rounded-xl"    
+                        className="w-[95%] md:w-[70%] rounded-xl md:mt-10"    
                     />
                 </div>
             </div>

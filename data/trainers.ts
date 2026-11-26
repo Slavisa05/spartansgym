@@ -14,7 +14,7 @@ export interface Trainer {
     gymSlugs: string[];
 }
 
-// TODO (fotografije): Stefan, Nikola i Slaviša trenutno dele /markec.jpg.
+// TODO (fotografije): Stefan, Nikola, Slaviša, Luka i Katarina trenutno dele /markec.jpg.
 // Zameniti pravim fotografijama čim ih vlasnik dostavi.
 
 export const trainers: Trainer[] = [
@@ -22,7 +22,7 @@ export const trainers: Trainer[] = [
         slug: "dejan-mladenovic",
         name: "Dejan Mladenović",
         role: "vlasnik",
-        img: "/dejan.jpg",
+        img: "/deki.jpeg",
         desc: [
             "Ja sam Dejan Mladenović, master profesor fizičkog vaspitanja i sporta Univerziteta u Beogradu. Više od deset godina aktivno radim sa ljudima svih uzrasta kroz različite vrste treninga, programe i sportske projekte.",
             "Tokom godina izgradio sam iskustvo u radu sa sportistima, decom, rekreativcima i osobama sa smetnjama u razvoju. Verujem da fizička aktivnost nije samo način da unapredimo izgled, već ključ za zdraviji, srećniji i kvalitetniji život.",
@@ -48,7 +48,7 @@ export const trainers: Trainer[] = [
         slug: "ivan-mali-petrovic",
         name: 'Ivan "Mali" Petrović',
         role: "menadžer/trener",
-        img: "/mali.jpg",
+        img: "/mali.jpeg",
         desc: [
             "Ivan Petrović, poznatiji svima kao Mali, apsolvent je Fakulteta sporta i fizičkog vaspitanja u Beogradu i uskoro stiče zvanje diplomiranog profesora fizičkog vaspitanja.",
             'Svoj nadimak “Mali” nosi još iz ranih dana — bio je najmlađi u porodici, društvu, a jedno vreme i u trenerskom timu, pa je ime jednostavno ostalo.',
@@ -61,26 +61,10 @@ export const trainers: Trainer[] = [
         gymSlugs: ["gym-1"],
     },
     {
-        slug: "milos-ivanovic",
-        name: "Miloš Ivanović",
-        role: "menadžer/trener",
-        img: "/somi.jpg",
-        desc: [
-            "Miloš Ivanović, svima poznat kao Šomi, apsolvent je na Strukovnim studijama Fakulteta sporta i fizičkog vaspitanja u Beogradu i uskoro stiče zvanje diplomiranog profesora fizičkog vaspitanja.",
-            'Od samog otvaranja naše teretane u Lajkovcu, Miloš je bio deo našeg tima i prolazio kroz obuku i pripreme za sve izazove koji ga čekaju u ovom poslu. Strpljivo je čekao svoju priliku, a kada ju je dobio — vrlo brzo ju je i opravdao. Zbog svoje predanosti, znanja i profesionalnog pristupa, ubrzo je preuzeo ulogu glavnog trenera i odgovornog lica u teretani u Lajkovcu, što među nama u šali zovemo – „direktor teretane“.',
-            "Pored vrhunske opreme kojom raspolaže naša teretana u Lajkovcu, ova varošica je Šomijevim angažovanjem dobila i jednog istinskog stručnjaka u svetu fitnesa.",
-            "Poznat je po svom pozitivnom duhu, šarmu i osmehu koji nikad ne skida s lica. Trening sa njim je uvek kombinacija ozbiljnog rada, dobre energije i prave motivacije. Uz dozu humora i sjajnu komunikaciju, Miloš iz svakog vežbača izvuče maksimum — i to na način da trening postane zadovoljstvo, a ne obaveza.",
-            "Posetite našu teretanu u Lajkovcu i uverite se sami zašto je Šomi jedan od omiljenih trenera među našim članovima!",
-        ],
-        instagram: "somika_10",
-        phone: "+381643260739",
-        gymSlugs: ["gym-2"],
-    },
-    {
         slug: "stefan-markovic",
         name: "Stefan Marković",
         role: "trener",
-        img: "/markec.jpg",
+        img: "/markec.jpeg",
         desc: [
             "Stefan Marković, poznatiji kao Markec, apsolvent je na Fakultetu sporta i fizičkog vaspitanja u Beogradu, smer akademske studije, i uskoro stiče zvanje diplomiranog profesora fizičkog vaspitanja.",
             "Još tokom priprema za upis na DIF, koje je prošao upravo kod nas, pokazao je izuzetnu posvećenost, talenat i ozbiljan pristup. Već tada je bilo jasno da od njega možemo mnogo da očekujemo. Nakon upisa fakulteta, Stefan je odmah počeo da radi u Školici plivanja, gde je pokazao odlične pedagoške i trenerske sposobnosti.",
@@ -96,7 +80,7 @@ export const trainers: Trainer[] = [
         slug: "nikola-ristovski",
         name: "Nikola Ristovski",
         role: "trener",
-        img: "/markec.jpg",
+        img: "/rile.jpeg",
         desc: [
             "Nikola Ristovski, poznatiji svima kao Rile, apsolvent je Fakulteta sporta i fizičkog vaspitanja u Leposaviću i uskoro stiče zvanje diplomiranog profesora fizičkog vaspitanja i sporta.",
             "Rile je i dalje aktivan sportista, tačnije fudbaler, a svoje bogato iskustvo iz raznih treninga koje je pokupio od mnogo trenera je preneo u teretanu.",
@@ -113,7 +97,7 @@ export const trainers: Trainer[] = [
         slug: "slavisa-arsenijevic",
         name: "Slaviša Arsenijević",
         role: "trener",
-        img: "/markec.jpg",
+        img: "/slavisa.jpeg",
         desc: [
             "Slaviša je naš trenutno najmlađi član tima koji nam je doneo dosta pozitivne energije i podmladio ceo tim.",
             "Nadimak Slavke je logičan ali pored toga ga zovemo i Misliča jer što se tiče IT sektora i savremene tehnologije on nam je glavni oslonac.",
@@ -125,7 +109,37 @@ export const trainers: Trainer[] = [
         ],
         instagram: "arsennijevic",
         phone: "+381640811781",
-        gymSlugs: ["gym-1", "gym-3"],
+        gymSlugs: ["gym-1", "gym-2", "gym-3"],
+    },
+    {
+        slug: "luka-lazic",
+        name: "Luka Lazić",
+        role: "trener",
+        img: "/luka.jpeg",
+        desc: [
+            "Luka Lazić apsolvent je Fakulteta za fizičko vaspitanje i sport Univerziteta Singidunum u Beogradu i uskoro stiče zvanje diplomiranog profesora fizičkog vaspitanja i sporta. Pored fakulteta, nosi i međunarodno priznatu NASM sertifikaciju za personalnog trenera (CPT), koju je stekao u HFS Akademiji u Novom Sadu.",
+            "Iskustvo u radu sa decom i mladima stekao je kao zamenik nastavnika fizičkog vaspitanja u osnovnoj i srednjoj školi, gde je planirao i izvodio časove, pratio napredak učenika i organizovao sportske turnire. Taj pedagoški pristup preneo je i u teretanu.",
+            "Luku odlikuju pravilan motorički razvoj, prevencija povreda i posvećenost svakom vežbaču. Veliku pažnju poklanja proceni posture i pokretljivosti, kao i izradi programa prilagođenih individualnim potrebama. Rad na kondicionoj pripremi je takođe jedna od njegovih jačih strana.",
+            "Mlad je, motivisan i pun energije. Svakom vežbaču pristupa strpljivo i stručno, sa ciljem da trening bude bezbedan, jasan i efikasan.",
+        ],
+        instagram: "__lazic3__",
+        phone: "+381645628120",
+        gymSlugs: ["gym-1", "gym-2"],
+    },
+    {
+        slug: "katarina-ivanovic",
+        name: "Katarina Ivanović",
+        role: "menadžer/trener",
+        img: "/kaca.jpeg",
+        desc: [
+            "Katarina Ivanović apsolvent je Fakulteta sporta i fizičkog vaspitanja u Beogradu, smer Rekreacija. Kod nas ima dvostruku ulogu: pored toga što je trener, ona je i menadžer, pa se brine i o organizaciji i svakodnevnom funkcionisanju teretane.",
+            "Iskustvo je sticala kroz rad u više fitnes studija u Beogradu, gde je vodila grupne i individualne treninge, a bogato iskustvo ima i u radu sa decom, kroz sportske kampove, košarku i dečje programe. Zahvaljujući tome, savršeno se snalazi sa vežbačima svih uzrasta, od najmlađih do odraslih.",
+            "Posebno se izdvaja po radu na oporavku od diskus hernije, gde kroz individualan i pažljiv pristup pomaže vežbačima da se bezbedno vrate pokretu. Pored toga, vodi individualne, poluindividualne i grupne treninge.",
+            "Katarinu krase odgovornost, komunikativnost i entuzijazam. Aktivno pohađa stručne edukacije i obuke iz oblasti rekreacije i fitnesa, a njen pozitivan i profesionalan pristup čini da se svaki vežbač oseća prijatno, motivisano i podržano.",
+        ],
+        instagram: "katarina_ivanovic._",
+        phone: "+381611563256",
+        gymSlugs: ["gym-2"],
     },
     {
         slug: "zaklina-milanovic",
@@ -147,7 +161,7 @@ export const trainers: Trainer[] = [
         slug: "marija-blizanjac",
         name: "Marija Blizanjac",
         role: "trener",
-        img: "/marija.jpg",
+        img: "/marija.jpeg",
         desc: [
             "Druga dama našeg tima je Marija Blizanjac, diplomirani profesor razredne nastave sa Učiteljskog fakulteta u Beogradu i jedan od najomiljenijih pedagoga u svom okruženju.",
             "Iza sebe ima više od 25 godina aktivnog bavljenja folklorom, što je doprinelo njenoj izuzetnoj kondiciji, disciplini i energiji koju prenosi na sve oko sebe. Pored toga, radi kao animator na Superkampu i vodi dečje animacije na rođendanima, gde kroz igru i zabavu neguje sportski duh kod najmlađih.",

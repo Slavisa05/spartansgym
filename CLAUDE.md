@@ -99,7 +99,8 @@ u `/api/contact`. Pun vodič: `DEPLOY.md`.
 ## Poznati TODO (van trenutne faze — čeka vlasnika)
 
 - `public/gym4.jpg` ne postoji (Gym 4 je "coming-soon") — dodati pravu fotku ili čist ekran.
-- Fotografije trenera Stefan / Nikola / Slaviša dele `public/markec.jpg`.
+- Fotografije trenera Stefan / Nikola / Slaviša / Luka / Katarina dele `public/markec.jpg`.
+- Luka i Katarina nemaju telefon ni Instagram (`data/trainers.ts`).
 - Pravi utisci članova umesto placeholdera.
 - `/politika-privatnosti` — dopuniti pravne podatke i rok čuvanja.
 - Kupiti domen → verifikovati u Resend-u → prebaciti `LEAD_TO` i `RESEND_FROM`.

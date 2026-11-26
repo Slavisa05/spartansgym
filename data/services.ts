@@ -24,7 +24,7 @@ export const services: Service[] = [
         slug: "personalni-trening",
         title: "Personalni trening",
         desc: "Naši personalni treninzi su prilagođeni vašim ciljevima, nivou kondicije i tempu napretka. Trenirajte sa iskusnim trenerom koji prati svaki vaš korak i motiviše vas da postignete maksimum.",
-        img: "/gym1.jpg",
+        img: "/grupna2.jpeg",
         paragraphs: [
             "Personalni trening je najefikasniji način da dostigneš svoje ciljeve — bilo da želiš da smršaš, dobiješ mišićnu masu, poboljšaš kondiciju ili jednostavno uvedeš više discipline u svoj životni stil. Svaki trening je prilagođen isključivo tebi, tvojim mogućnostima i ciljevima.",
             "Uz stalnu podršku i praćenje stručnog trenera, naučićeš pravilnu tehniku izvođenja vežbi, izbeći povrede i ostvariti maksimum rezultata u najkraćem mogućem roku.",
@@ -60,7 +60,7 @@ export const services: Service[] = [
         slug: "vodjeni-trening",
         title: "Vođeni trening",
         desc: "Pridružite se dinamičnim vođenim treninzima i uživajte u motivaciji zajednice. Od kardio treninga do funkcionalnog vežbanja, svaki čas je prilika za zabavu i napredak.",
-        img: "/gym1.jpg",
+        img: "/grupna1.jpeg",
         paragraphs: [
             "Vođeni trening je savršen izbor za sve koji vole dobru energiju, motivaciju i zajednički rad. Vežbanje u grupi donosi posebnu atmosferu koja inspiriše i podstiče da iz sebe izvučeš maksimum, bez obzira na nivo fizičke spreme.",
             "Treninzi su dinamični, raznovrsni i osmišljeni tako da aktiviraju celo telo, poboljšaju kondiciju i povećaju snagu. Svaki čas vodi stručan trener koji pazi na pravilno izvođenje vežbi i motiviše te tokom celog treninga.",
