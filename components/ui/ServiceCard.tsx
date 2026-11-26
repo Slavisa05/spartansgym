@@ -7,7 +7,7 @@ import { ArrowRight, Clock3, Tag, X } from "lucide-react";
 interface ServiceCardProps {
     title: string;
     desc: string;
-    img: string;
+    img?: string;
     paragraphs: string[];
     time?: string;
     price: string;
@@ -85,16 +85,18 @@ export default function ServiceCard({ title, desc, img, paragraphs, time, price,
                             </button>
                         </div>
 
-                        <div className="grid grid-cols-1 gap-5 md:grid-cols-[1fr_1.2fr] md:gap-7">
-                            <div className="overflow-hidden rounded-xl border border-border bg-bg-tertiary">
-                                <Image
-                                    src={img}
-                                    alt={`slika usluge ${title}`}
-                                    width={900}
-                                    height={700}
-                                    className="h-full w-full object-cover"
-                                />
-                            </div>
+                        <div className={img ? "grid grid-cols-1 gap-5 md:grid-cols-[1fr_1.2fr] md:gap-7" : "grid grid-cols-1"}>
+                            {img && (
+                                <div className="overflow-hidden rounded-xl border border-border bg-bg-tertiary">
+                                    <Image
+                                        src={img}
+                                        alt={`slika usluge ${title}`}
+                                        width={900}
+                                        height={700}
+                                        className="h-full w-full object-cover"
+                                    />
+                                </div>
+                            )}
 
                             <div className="flex flex-col gap-4">
                                 <h3 className="text-2xl md:text-3xl">{title}</h3>
@@ -108,15 +110,18 @@ export default function ServiceCard({ title, desc, img, paragraphs, time, price,
                                 </div>
 
                                 <div className="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                                    <div className="rounded-xl border border-border bg-bg-tertiary p-3">
-                                        <p className="mb-1 inline-flex items-center gap-2 text-xs uppercase tracking-wide text-text-secondary">
-                                            <Clock3 size={14} />
-                                            Vreme trajanja
-                                        </p>
-                                        <p className="font-semibold text-text-primary">{time} min</p>
-                                    </div>
+                                    {time && (
+                                        <div className="rounded-xl border border-border bg-bg-tertiary p-3">
+                                            <p className="mb-1 inline-flex items-center gap-2 text-xs uppercase tracking-wide text-text-secondary">
+                                                <Clock3 size={14} />
+                                                Vreme trajanja
+                                            </p>
+                                            <p className="font-semibold text-text-primary">{time} min</p>
+                                        </div>
+                                    )}
 
-                                    <div className="rounded-xl border border-border bg-bg-tertiary p-3">
+                                    {/* Bez trajanja cena zauzima ceo red. */}
+                                    <div className={`rounded-xl border border-border bg-bg-tertiary p-3 ${time ? "" : "sm:col-span-2"}`}>
                                         <p className="mb-1 inline-flex items-center gap-2 text-xs uppercase tracking-wide text-text-secondary">
                                             <Tag size={14} />
                                             Cena

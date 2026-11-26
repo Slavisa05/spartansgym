@@ -2,7 +2,11 @@ export interface Service {
     slug: string;
     title: string;
     desc: string;
-    img: string;
+    /**
+     * Slika u popup-u. Opciono — bez nje popup prikazuje samo tekst
+     * preko cele širine (dok vlasnik ne pošalje fotografije).
+     */
+    img?: string;
     paragraphs: string[];
     time?: string;
     price: string;
@@ -45,7 +49,6 @@ export const services: Service[] = [
         slug: "kondiciona-priprema-sportista",
         title: "Kondiciona priprema sportista",
         desc: "Naša kondiciona priprema sportista osmišljena je da odgovori na specifične zahtjeve vašeg sporta, nivoa forme i takmičarskog kalendara. Radite sa stručnjacima koji prate svaki detalj vašeg razvoja i vode vas ka vrhunskoj formi.",
-        img: "/gym1.jpg",
         paragraphs: [
             "Kondiciona priprema sportista donosi vrhunsku energiju, zajednički rad i takmičarski duh koji podstiče maksimalan napredak. Treninzi su osmišljeni tako da razvijaju snagu, izdržljivost, agilnost i eksplozivnost — ključne komponente svakog uspešnog sportiste.",
             "Rad u grupi stvara atmosferu koja motiviše, pojačava fokus i podiže intenzitet na viši nivo. Svaki trening vodi stručan kondicioni trener koji prati tehniku, tempira opterećenje i usmerava svakog sportistu prema individualnom maksimumu.",
@@ -79,7 +82,6 @@ export const services: Service[] = [
         slug: "skolica-sporta-malci-tamnavci",
         title: 'Školica sporta "Malci Tamnavci"',
         desc: 'Pridružite se školici sporta "Malci Tamnavci" i omogućite deci da kroz igru razvijaju veštine, samopouzdanje i ljubav prema fizičkoj aktivnosti.',
-        img: "/gym1.jpg",
         paragraphs: [
             'Školica sporta „Malci Tamnavci" je idealno mesto gde najmlađi kroz igru i zabavu uče osnovne sportske veštine i razvijaju zdrav odnos prema fizičkoj aktivnosti. Program je prilagođen uzrastu i mogućnostima dece, sa ciljem da se kroz raznovrsne aktivnosti poboljša motorika, koordinacija i timski duh.',
             "Stručni treneri vode decu kroz igre i vežbe koje podstiču njihovu radoznalost, samopouzdanje i ljubav prema sportu. Uz pažljivo osmišljene treninge, deca ne samo da uče pravilne pokrete već i razvijaju socijalne veštine, saradnju i zdrav stil života.",
@@ -93,7 +95,6 @@ export const services: Service[] = [
         slug: "decija-gimnastika",
         title: "Dečija gimnastika",
         desc: "Razvijanje tela kroz igru i pokret! Dečija gimnastika pomaže mališanima da ojačaju telo, poboljšaju koordinaciju i steknu poverenje u svoje sposobnosti – uz osmeh i zabavu!",
-        img: "/gym1.jpg",
         paragraphs: [
             "Dečija gimnastika je sjajan način da najmlađi kroz igru i strukturisane vežbe razvijaju snagu, fleksibilnost i pravilno držanje. Program je prilagođen uzrastu i sposobnostima dece, a cilj je da mališani kroz zanimljive i bezbedne aktivnosti steknu osnovne gimnastičke veštine.",
             "Pod stručnim vođstvom trenera, deca uče pravilnu tehniku izvođenja vežbi, razvijaju koordinaciju i ravnotežu, a istovremeno jačaju telo i samopouzdanje. Vežbe su osmišljene tako da podstiču razvoj motorike i mentalne fokusiranosti, uz puno zabave i igre.",
@@ -107,7 +108,6 @@ export const services: Service[] = [
         slug: "skolica-plivanja",
         title: "Školica plivanja",
         desc: "Sigurni u vodi, snažni kroz igru! Školica plivanja pomaže deci da razviju plivačke veštine, samopouzdanje i ljubav prema vodi – kroz zabavu i pažljivo vođene treninge.",
-        img: "/gym1.jpg",
         paragraphs: [
             "Školica plivanja je idealno mesto gde deca kroz igru i stručno vođene treninge uče osnovne plivačke tehnike i razvijaju sigurnost u vodi. Program je prilagođen uzrastu i sposobnostima svakog mališana, sa ciljem da kroz zabavu i pravilnu tehniku deca steknu samopouzdanje i ljubav prema plivanju.",
             "Pod budnim okom iskusnih trenera, deca savladavaju prve zaveslaje, uče pravilno disanje i bezbedno kretanje u vodi. Treninzi su osmišljeni da budu zabavni, ali i edukativni, kako bi mališani napredovali svojim tempom i sa radošću dolazili na časove.",
@@ -122,7 +122,6 @@ export const services: Service[] = [
         slug: "korekcija-telesnih-deformiteta",
         title: "Korekcija telesnih deformiteta",
         desc: "Pridružite se programu korektivnog vežbanja i radite na ispravljanju telesnih deformiteta, poboljšanju posture i svakodnevnog funkcionisanja – za decu i odrasle.",
-        img: "/gym1.jpg",
         paragraphs: [
             "Program korekcije telesnih deformiteta osmišljen je da pomogne deci i odraslima da kroz stručno vođene vežbe isprave nepravilnosti u držanju i telesnoj strukturi. Svaki plan treninga prilagođavamo individualnim potrebama, uzimajući u obzir uzrast, stepen deformiteta i fizičke mogućnosti.",
             "Pod nadzorom stručnog tima, naučićete pravilne pokrete i tehnike koje će pomoći u ublažavanju bolova, poboljšanju posture i sprečavanju daljeg napredovanja deformiteta. Vežbe su osmišljene tako da budu bezbedne, efikasne i prilagođene vašem tempu i mogućnostima.",
@@ -137,7 +136,6 @@ export const services: Service[] = [
         slug: "oporavak-povrede",
         title: "Oporavak povrede",
         desc: "Vratite se svakodnevnim aktivnostima bez bola. Program oporavka od povreda osmišljen je uz stručno vođstvo kako bi se ubrzala rehabilitacija, povratila snaga i sprečile nove povrede – bez obzira na uzrast i nivo aktivnosti.",
-        img: "/gym1.jpg",
         paragraphs: [
             "Program oporavka od povrede osmišljen je da vam pomogne da se što brže i bezbednije vratite svakodnevnim aktivnostima i treningu. Bez obzira na vrstu i stepen povrede, svaki plan prilagođavamo vašim potrebama i fazi rehabilitacije, uz podršku stručnog tima.",
             "Kroz pažljivo vođene vežbe i postupke, radićete na povratku snage, pokretljivosti i funkcionalnosti oštećenih delova tela, uz minimalan rizik od ponovnog povređivanja. Naš cilj je da vam omogućimo potpuni oporavak i vraćanje na željeni nivo aktivnosti, bilo da se bavite sportom ili samo želite da se osećate bolje u svakodnevnom životu.",
@@ -151,7 +149,6 @@ export const services: Service[] = [
         slug: "pripreme-za-upis-dif-kpu",
         title: "Pripreme za upis na DIF, KPU...",
         desc: "Pridružite se pripremama za DIF, KPU i druge fakultete i uz ciljane treninge povećajte šanse za uspešan prijemni i upis željenog smera.",
-        img: "/gym1.jpg",
         paragraphs: [
             "Pripreme za upis na DIF, KPU i druge sportske fakultete osmišljene su da ti pomognu da sa sigurnošću i spremnošću pristupiš prijemnim ispitima. Kroz ciljane treninge usavršavaš motoričke sposobnosti, tehniku i kondiciju, prilagođene zahtevima konkretnih testova i tvojim trenutnim sposobnostima.",
             "Pod stručnim vođstvom trenera koji poznaju program i standarde prijemnih ispita, radićeš na poboljšanju izdržljivosti, brzine, snage i koordinacije – ali i na mentalnoj spremnosti, kako bi na dan ispita bio maksimalno koncentrisan i samouveren.",
@@ -165,7 +162,6 @@ export const services: Service[] = [
         slug: "individualni-plan-ishrane",
         title: "Individualni plan ishrane",
         desc: "Jedite pametno – prema svom cilju i ritmu života. Individualni plan ishrane prilagođen je vašim ciljevima, navikama i zdravstvenom stanju, uz stručno vođstvo za postizanje dugoročnih rezultata.",
-        img: "/gym1.jpg",
         paragraphs: [
             "Individualni plan ishrane kreiran je da ti pomogne da postigneš svoje ciljeve – bilo da želiš da smršaš, dobiješ mišićnu masu, poboljšaš energiju ili jednostavno uspostaviš zdravije navike. Plan je prilagođen tvom životnom stilu, preferencijama i zdravstvenom stanju, kako bi rezultati bili dugoročni i održivi.",
             "Uz stručnu podršku nutricioniste, naučićeš kako pravilno kombinovati namirnice, pratiti unos i prilagođavati ishranu bez odricanja. Individualni pristup omogućava ti fleksibilnost, motivaciju i jasne smernice ka zdravijem načinu života.",
@@ -179,7 +175,6 @@ export const services: Service[] = [
         slug: "joga",
         title: "Joga",
         desc: "Pridružite se časovima joge i oslobodite telo od napetosti, um od stresa, a dah uskladite s pokretom – u prijatnom i podržavajućem okruženju.",
-        img: "/gym1.jpg",
         paragraphs: [
             "Joga je idealan način da pronađeš ravnotežu između tela i uma, bez obzira na nivo tvoje fizičke spreme ili prethodno iskustvo. Kroz vođene časove učiš tehnike disanja, istezanja i snage koje pomažu da oslobodiš napetost, poboljšaš fleksibilnost i ojačaš mišiće.",
             "Pod stručnim vođstvom instruktora, svaki čas je prilika da se opustiš, fokusiraš i oslobodiš stresa, dok istovremeno radiš na svojoj kondiciji i unutrašnjem miru. Joga nije samo trening tela, već i put ka boljoj povezanosti sa sobom.",
@@ -193,7 +188,6 @@ export const services: Service[] = [
         slug: "pilates",
         title: "Pilates",
         desc: "Ojačajte telo i poboljšajte držanje uz pilates. Kroz kontrolisane vežbe pilatesa razvijajte snagu, fleksibilnost i stabilnost – idealno za sve nivoe i uzraste.",
-        img: "/gym1.jpg",
         paragraphs: [
             "Pilates je efikasan način da ojačaš telo, poboljšaš držanje i povećaš fleksibilnost, bez obzira na nivo tvoje kondicije. Kroz precizne i kontrolisane pokrete učiš kako da aktiviraš duboke mišiće trupa, što doprinosi stabilnosti i ravnoteži tela.",
             "Pod stručnim vođstvom instruktora, svaki trening je prilika da oslobodiš napetost, povećaš snagu i energiju, ali i da smanjiš rizik od povreda kroz pravilnu tehniku izvođenja vežbi. Pilates je idealan za sve uzraste i nivoe, kao i za one koji traže podršku u rehabilitaciji.",
